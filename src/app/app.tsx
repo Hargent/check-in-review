@@ -1,5 +1,13 @@
+import Header from "../ui/header";
+import Nav from "../ui/nav-bar";
+
 function App() {
-  return <h1>App</h1>;
+  return (
+    <main>
+      <Header />
+      <Nav />
+    </main>
+  );
 }
 
 export default App;
