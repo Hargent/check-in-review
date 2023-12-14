@@ -23,16 +23,23 @@ function Dropdown({
 }: DropDownProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(defaultValue);
-  const dropdownRef = useRef(null);
+  const dropdownRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     // Add an event listener to close the dropdown when a click occurs outside of it
-    const handleOutsideClick = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+    // const handleOutsideClick = (event) => {
+    //   if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+    //     setIsOpen(false);
+    //   }
+    // };
+    const handleOutsideClick = (event: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
         setIsOpen(false);
       }
     };
-
     document.addEventListener("click", handleOutsideClick);
 
     return () => {
