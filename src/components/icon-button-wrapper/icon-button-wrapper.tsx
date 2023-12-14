@@ -1,5 +1,4 @@
-import React, { ReactNode } from "react";
-
+import { ReactNode } from "react";
 import { convertPxToRem } from "../../utils/index";
 
 enum ICON_WRAPPER_SIZES {
