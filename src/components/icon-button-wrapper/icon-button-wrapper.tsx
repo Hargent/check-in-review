@@ -1,12 +1,7 @@
+import { ICON_WRAPPER_SIZES } from "../../shared/enums";
 import { ReactNode } from "react";
 import { convertPxToRem } from "../../utils/index";
 
-enum ICON_WRAPPER_SIZES {
-  sm = "w-6 h-6",
-  md = "w-8 h-8",
-  lg = "w-10 h-10",
-  xl = "w-12 h-12"
-}
 type IconButtonWrapperProps = {
   children: ReactNode;
   size?: string;

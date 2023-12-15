@@ -11,7 +11,7 @@ type DropDownProps = {
   options: string[];
   defaultValue: string;
   onSelect: (arg: string) => void;
-  extendedClassNames: string[];
+  extendedClassNames: string;
   title: string;
 };
 function Dropdown({
