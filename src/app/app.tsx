@@ -7,7 +7,7 @@ function App() {
     <main>
       <Header />
       <Nav />
-      <div className=" flex items-center justify-center w-full p-4">
+      <div className=" relative flex items-center justify-center w-4/5 mx-auto p-4">
         <Questions />
       </div>
     </main>

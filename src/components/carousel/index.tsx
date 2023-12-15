@@ -18,10 +18,13 @@ type CarouselContextType = {
   items: React.ReactNode[];
 
   handleSetItems: (items: React.ReactNode[]) => void;
+  animDir: "left" | "right" | "";
 };
 export const CarouselContext = createContext<CarouselContextType | null>(null);
 function Carousel({ children }: Props) {
   const [items, setItems] = useState<React.ReactNode[]>([]);
+
+  const [animDir, setAnimDir] = useState<"left" | "right" | "">("");
   const [currentId, setCurrentId] = useState<number>(
     items.length > 0 ? items.length : 1
   );
@@ -31,12 +34,14 @@ function Carousel({ children }: Props) {
     const nextCondition = currentId + 1 >= items.length;
 
     if (nextCondition) return;
+    setAnimDir("right");
     setCurrentId((id: number): number => (id += 1));
   };
   const prev = () => {
     const prevCondition = currentId === 0;
     if (prevCondition) return;
 
+    setAnimDir("left");
     // console.log("setting id: ", currentId);
     setCurrentId((id: number): number => (id -= 1));
   };
@@ -46,6 +51,7 @@ function Carousel({ children }: Props) {
   return (
     <CarouselContext.Provider
       value={{
+        animDir,
         next,
         prev,
         currentId,

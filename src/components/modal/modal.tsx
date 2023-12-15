@@ -1,21 +1,21 @@
-import React, {
-  cloneElement,
-  createContext,
-  useContext,
-  useState
-} from "react";
-import { useEffect, useRef } from "react";
+import React, { createContext, useContext, useState } from "react";
 
+import { ModalId } from "../../shared/enums";
 import { createPortal } from "react-dom";
+import { useCloseModal } from "./use-modal";
 
 // import { MdKeyboardReturn } from "react-icons/md";
 
 type contextType = {
-  setOpen?: (id: string) => void;
+  setOpen?: (id: ModalId) => void;
   close?: () => void;
-  openId?: string;
+  openId?: ModalId | "";
+  forceOpenModal?: (id: ModalId) => void;
+  forceCloseModal?: (id: ModalId) => void;
+
+  toggleActive?: () => void;
 };
-const ModalContext = createContext<contextType>({});
+export const ModalContext = createContext<contextType>({});
 type ModalProps = {
   children: React.ReactNode;
 };
@@ -23,13 +23,32 @@ const Modal: React.FC<ModalProps> & {
   Window: typeof Window;
   Open: typeof Open;
 } = ({ children }) => {
-  const [openId, setOpenId] = useState("");
-  const close = () => setOpenId("");
-  const setOpen = (id: string) => setOpenId(id);
+  const [openId, setOpenId] = useState<ModalId | "">("");
+  const [isActive, setIsActive] = useState<boolean>(false);
+  const close = () => {
+    if (isActive) return;
+    setOpenId("");
+  };
+  const setOpen = (id: ModalId) => setOpenId(id);
   // console.log(openId);
+  const forceOpenModal = (id: ModalId) => setOpenId(id);
+  const forceCloseModal = () => setOpenId("");
+  const toggleActive = () => {
+    setIsActive((state) => !state);
+  };
 
   return (
-    <ModalContext.Provider value={{ openId, setOpen, close }}>
+    <ModalContext.Provider
+      value={{
+        openId,
+        setOpen,
+        close,
+        forceOpenModal,
+        forceCloseModal,
+
+        toggleActive
+      }}
+    >
       {" "}
       {children}
     </ModalContext.Provider>
@@ -42,7 +61,7 @@ function Open({
 }: {
   additionalClassName?: string;
   children: React.ReactElement;
-  id: string;
+  id: ModalId;
 }) {
   const { setOpen } = useContext(ModalContext);
 
@@ -54,7 +73,7 @@ function Open({
   return (
     <RenderComponentWithProps
       props={additionalProps}
-      additionalClassName={additionalClassName}
+      additionalClassName={`cursor-pointer ${additionalClassName}`}
     >
       {children}
     </RenderComponentWithProps>
@@ -64,28 +83,43 @@ function Window({
   children,
   id,
   isChildren = false /*is it a child of its parent or body*/,
-  additionalClass
+  additionalClass,
+  outsideClose = true
 }: {
   children: React.ReactElement;
-  id: string;
+  id: ModalId;
   isChildren?: boolean;
   additionalClass: string;
+  outsideClose: boolean;
 }) {
   const { openId, close } = useContext(ModalContext);
-  const { ref } = useCloseModal(close);
+  const { ref } = useCloseModal(id, outsideClose);
 
   if (id !== openId) return null;
 
   if (isChildren) {
     return (
-      <div className={additionalClass} ref={ref}>
-        <>{cloneElement(children, { onCloseModal: close })}</>
+      <div className={additionalClass}>
+        <div ref={ref}>
+          {React.cloneElement(children, { onCloseModal: close })}
+        </div>
       </div>
     );
   }
+
   return createPortal(
-    <div className={additionalClass} ref={ref}>
-      <>{cloneElement(children, { onCloseModal: close })}</>
+    <div
+      className={`overflow-auto w-full h-full fixed top-0 left-0 flex items-center justify-center bg-ffq-overlay  bg-opacity-90 backdrop-blur-sm ${additionalClass} z-50`}
+    >
+      <div
+        className={`${
+          additionalClass ? additionalClass : "w-[90%] lg:w-1/2 mx-auto"
+        }`}
+      >
+        <div ref={ref}>
+          {React.cloneElement(children, { onCloseModal: close })}
+        </div>
+      </div>
     </div>,
     document.body
   );
@@ -108,17 +142,8 @@ function RenderComponentWithProps({
     </div>
   );
 }
-function useCloseModal(close?: () => void) {
-  const ref = useRef<HTMLDivElement | null>(null);
-  useEffect(() => {
-    const handleClick = (e: MouseEvent) => {
-      if (ref.current && !ref.current.contains(e.target as Node)) close?.();
-    };
-    document.addEventListener("click", handleClick, true);
-    return () => document.removeEventListener("click", handleClick, true);
-  }, [close]);
 
-  return { ref };
-}
-
+Modal.Window = Window;
+Modal.Open = Open;
 export default Modal;
+// ModalProvider.js;
