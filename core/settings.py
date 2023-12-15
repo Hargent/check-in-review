@@ -29,8 +29,10 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 
 DEBUG = os.getenv('DEBUG', '0').lower() in ['true', 't', '1']
 
-# ALLOWED_HOSTS = []
+
 ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS').split(' ')
+
+
 
 
 # Application definition
@@ -55,6 +57,7 @@ INSTALLED_APPS = [
 
     # Local
     "accounts.apps.AccountsConfig",
+    "reviews.apps.ReviewsConfig",
 ]
 
 MIDDLEWARE = [
@@ -150,10 +153,13 @@ CORS_ORIGIN_WHITELIST = (
 "http://localhost:8000",
 "http://localhost:5173",
 "http://localhost:5174",
+"https://check-in-review.vercel.app",
 )
 
 CSRF_TRUSTED_ORIGINS = ["http://localhost:5173",
-"http://localhost:5174",]
+"http://localhost:5174",
+"https://check-in-review.vercel.app/",
+]
 
 
 AUTHENTICATION_BACKENDS = (
