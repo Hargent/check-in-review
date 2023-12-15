@@ -29,7 +29,9 @@ const Modal: React.FC<ModalProps> & {
     if (isActive) return;
     setOpenId("");
   };
-  const setOpen = (id: ModalId) => setOpenId(id);
+  const setOpen = (id: ModalId) => {
+    setOpenId(id);
+  };
   // console.log(openId);
   const forceOpenModal = (id: ModalId) => setOpenId(id);
   const forceCloseModal = () => setOpenId("");
@@ -63,10 +65,13 @@ function Open({
   children: React.ReactElement;
   id: ModalId;
 }) {
-  const { setOpen } = useContext(ModalContext);
+  const { setOpen, openId } = useContext(ModalContext);
 
   const additionalProps = {
     onClick: () => {
+      console.log("====================================");
+      console.log(openId);
+      console.log("====================================");
       setOpen?.(id);
     }
   };

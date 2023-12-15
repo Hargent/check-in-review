@@ -28,8 +28,9 @@ export enum ICON_WRAPPER_SIZES {
   xl = "w-12 h-12"
 }
 export enum ModalId {
-  "Login",
-  "Logout"
+  Login = "Login",
+  Logout = "Logout",
+  Register = "Register"
 }
 export enum ButtonTypes {
   "button",

@@ -6,43 +6,67 @@ import Icons from "../../components/icons";
 import Modal from "../../components/modal/modal";
 import { ModalId } from "../../shared/enums";
 import { useAppSelector } from "../../shared/hooks";
-import Login from "../login";
-import Logout from "../logout/logout";
+// import Login from "../login";
+// import Logout from "../logout/logout";
 
 export default function Header() {
   const isLoggedIn = useAppSelector((state) => state.auth.isLoggedIn);
   return (
-    <Modal>
-      <div className=" flex items-center justify-between w-full bg-white-500 py-6 px-5  bg-white">
-        <div className="">
-          <img src={AppLogo} alt="crea8genius" />
-        </div>
-        <div className=" flex items-center justify-between space-x-6 ">
-          {!isLoggedIn && (
-            <div className=" flex items-center justify-start space-x-4">
-              <span className="text-xxl hover:text-black duration-0 text-blue-400 mr-10
-              ">Welcome</span>
-              <span  className="text-xxl hover:text-black duration-0 text-blue-400 mr-20">Hargent</span>
-            </div>
-          )}
-          <Modal.Open id={!isLoggedIn ? ModalId.Login : ModalId.Logout}>
-            <div className=" flex items-center justify-between space-x-4">
-              {!isLoggedIn ? <span  className="text-xxl text-white mr-20 bg-blue-500 border-red-300 px-5 py-2 rounded-md hover:text-blue duration-0 hover:bg-blue-500">Login</span> : <span>logout</span>}
-              <IconButtonWrapper extendedClassNames="">
-                <Icons.IconDoor isLoggedIn={isLoggedIn} />
-              </IconButtonWrapper>
-            </div>
-          </Modal.Open>
-        </div>
+    // <Modal>
+    <div className=" flex items-center justify-between w-full bg-white-500 py-6 px-5  bg-white">
+      <div className="">
+        <img src={AppLogo} alt="crea8genius" />
       </div>
-      <Modal.Window outsideClose={true} additionalClass="" id={ModalId.Login}>
-        <Login />
-      </Modal.Window>
-      <Modal.Window outsideClose={true} additionalClass="" id={ModalId.Logout}>
-        <Logout />
-      </Modal.Window>
-    </Modal>
+      <div className=" flex items-center justify-between space-x-6 ">
+        {!isLoggedIn && (
+          <div className=" flex items-center justify-start space-x-4">
+            <span
+              className="text-xxl hover:text-black duration-0 text-blue-400 mr-10
+              "
+            >
+              Welcome
+            </span>
+            <span className="text-xxl hover:text-black duration-0 text-blue-400 mr-20">
+              Hargent
+            </span>
+          </div>
+        )}
+        <Modal.Open id={!isLoggedIn ? ModalId.Login : ModalId.Logout}>
+          <div className=" flex items-center justify-between space-x-4">
+            {!isLoggedIn ? (
+              <span className="text-xxl text-white mr-20 bg-blue-500 border-red-300 px-5 py-2 rounded-md hover:text-blue duration-0 hover:bg-blue-500">
+                Login
+              </span>
+            ) : (
+              <span>logout</span>
+            )}
+            <IconButtonWrapper extendedClassNames="">
+              <Icons.IconDoor isLoggedIn={isLoggedIn} />
+            </IconButtonWrapper>
+          </div>
+        </Modal.Open>
+      </div>
+    </div>
   );
+}
+{
+  /* </div> */
 }
 // profile {name, login/logout}
 //logo
+//  <div className=" flex items-center justify-end space-x-6">
+//     {!isLoggedIn && (
+//       <div className=" flex items-center justify-start space-x-4">
+//         <span>welcome</span>
+//         <span>Hargent</span>
+//       </div>
+//     )}
+//     <Modal.Open id={!isLoggedIn ? ModalId.Login : ModalId.Logout}>
+//       <div className=" flex items-center justify-between space-x-4">
+//         {!isLoggedIn ? <span>login</span> : <span>logout</span>}
+//         <IconButtonWrapper extendedClassNames="">
+//           <Icons.IconDoor isLoggedIn={isLoggedIn} />
+//         </IconButtonWrapper>
+//       </div>
+//     </Modal.Open>
+//   </div>
