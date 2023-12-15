@@ -17,6 +17,7 @@ export default function Header() {
         <div className="">
           <img src={AppLogo} alt="crea8genius" />
         </div>
+        <div></div>
         <div className=" flex items-center justify-end space-x-6">
           {!isLoggedIn && (
             <div className=" flex items-center justify-start space-x-4">
