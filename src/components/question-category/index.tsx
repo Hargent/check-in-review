@@ -6,8 +6,10 @@ type Props = {
 
 export default function QuestionCategory({ category }: Props) {
   return (
-    <div>
-      <header>{category.category}</header>
+    <div className=" flex flex-col items-start justify-start space-y-4">
+      <header className=" self-center font-bold text-3l uppercase">
+        {category.category}
+      </header>
       <div className="">
         {category.questions.map((question, idx) => (
           <QuestionItem key={`${idx}--$&`} question={question} />

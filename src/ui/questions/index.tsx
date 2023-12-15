@@ -8,14 +8,16 @@ export default function Questions() {
       <Carousel.Prev>
         <span>prev</span>
       </Carousel.Prev>
-      <Carousel.Window extendedClassNames="">
+      <Carousel.Window extendedClassNames="mx-auto py-6">
         <Carousel.Items>
           {AppQuestions.map((appQuestion, idx) => (
             <QuestionCategory key={`$--${idx}##$`} category={appQuestion} />
           ))}
         </Carousel.Items>
       </Carousel.Window>
-      <Carousel.Next>Next</Carousel.Next>
+      <Carousel.Next>
+        <span>Next</span>
+      </Carousel.Next>
     </Carousel>
   );
 }
