@@ -63,7 +63,7 @@ function Dropdown({
       ref={dropdownRef}
       onClick={toggleDropdown}
     >
-      <div className=" cursor-pointer  p-4 border border-ffq-primary transition-colors duration-200 ease-in-out capitalize  rounded-lg flex items-center justify-center space-x-4 hover:text-ffq-primary">
+      <div className=" cursor-pointer  p-4 border border-green-600 transition-colors duration-200 ease-in-out capitalize  rounded-lg flex items-center justify-center space-x-4 hover:text-green-600">
         <span>{selectedOption || defaultValue || title}</span>
         <IconButtonWrapper extendedClassNames={` `}>
           <Icons.IconDrop isDropdown={!isOpen} />
@@ -71,12 +71,12 @@ function Dropdown({
       </div>
 
       {isOpen && (
-        <ul className=" min-w-full w-[max-content] flex items-stretch flex-col place-self-center space-y-3  p-4 border bg-ffq-secondary  border-ffq-primary capitalize  rounded-lg my-4 z-50 divide-y divide-ffq-primary absolute">
+        <ul className=" min-w-full w-[max-content] flex items-stretch flex-col place-self-center space-y-3  p-4 border bg-green-400  border-green-600 capitalize  rounded-lg my-4 z-50 divide-y divide-green-600 absolute">
           {options.map((option) => (
             <li
               key={option}
               onClick={() => handleOptionClick(option)}
-              className=" cursor-pointer hover:text-ffq-primary pt-3 first:pt-0 "
+              className=" cursor-pointer hover:text-green-600 pt-3 first:pt-0 "
             >
               {option}
             </li>

@@ -8,10 +8,11 @@ type Props = {
 
 function CarouselNext({ children }: Props) {
   const { next, currentId, items } = useCarouselContext();
+
   return (
     <IconButtonWrapper
-      disabled={currentId > items.length - 1}
-      extendedClassNames=" absolute z-10 right-0 top-1/2 transform -translate-y-1/2 md:-translate-1/2 -translate-x-0 hover:bg-[var(--tertiary-theme)] bg-[var(--tertiary-theme)] p-2 rounded-[50%] md:bg-transparent "
+      disabled={currentId >= items.length - 1}
+      extendedClassNames="disabled:opacity-0 disabled:cursor-not-allowed absolute z-10 right-0 bottom-0 transform  md:-translate-1/2 -translate-0 hover:bg-[var(--tertiary-theme)] bg-[var(--tertiary-theme)] p-2 rounded-[50%] md:bg-transparent "
       onClick={next}
     >
       {children}

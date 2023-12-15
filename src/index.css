@@ -1,3 +1,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+.animated {
+  @apply transition-all  duration-500 ease-in-out transform -translate-x-0;
+
+  &.fade-left-enter,
+  &.fade-left-exit-active {
+    @apply translate-x-0 opacity-100;
+  }
+
+  &.fade-left-enter-active,
+  &.fade-left-exit {
+    @apply -translate-x-full opacity-0;
+  }
+
+  /* right */
+  &.fade-right-enter,
+  &.fade-right-exit-active {
+    @apply translate-x-0 opacity-100;
+  }
+
+  &.fade-right-enter-active,
+  &.fade-right-exit {
+    @apply translate-x-full opacity-0;
+  }
+}
