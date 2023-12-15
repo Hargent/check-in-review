@@ -11,10 +11,10 @@ export default function Nav() {
     console.log(week);
   }
   return (
-    <div className=" flex items-center justify-evenly py-4">
+    <div className=" flex items-center justify-evenly py-4 bg-green-400">
       <div className="  flex items-center justify-normal space-x-6">
-        <p>select your team : </p>
-        <div className="relative ">
+        <p className="text-white ">Select your team : </p>
+        <div className="relative text-white ">
           <Dropdown
             title="teams"
             extendedClassNames={` w-full`}
@@ -25,8 +25,8 @@ export default function Nav() {
         </div>
       </div>
       <div className="  flex items-center justify-normal space-x-6">
-        <p>select month : </p>
-        <div className="relative">
+        <p className="text-white">Select month : </p>
+        <div className="relative text-white">
           <Dropdown
             title="month"
             extendedClassNames={``}
@@ -37,8 +37,8 @@ export default function Nav() {
         </div>
       </div>
       <div className="  flex items-center justify-normal space-x-6">
-        <p>select your team : </p>
-        <div className="relative">
+        <p className="text-white">Select your team : </p>
+        <div className="relative  text-white">
           <Dropdown
             title="week"
             extendedClassNames={``}

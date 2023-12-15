@@ -6,7 +6,7 @@ export default function Questions() {
   return (
     <Carousel>
       <Carousel.Prev>
-        <span className=" p-2 rounded-lg uppercase border border-green-500 text-green-500 transition-colors duration-300 ease-in-out hover:bg-green-500 hover:text-white ">
+        <span className=" px-10 py-8 rounded-lg uppercase border border-green-500 text-green-500 transition-colors duration-300 ease-in-out hover:bg-green-500 hover:text-white ">
           prev
         </span>
       </Carousel.Prev>
@@ -18,7 +18,7 @@ export default function Questions() {
         </Carousel.Items>
       </Carousel.Window>
       <Carousel.Next>
-        <span className=" p-2 rounded-lg uppercase border border-green-500 text-green-500 transition-colors duration-300 ease-in-out hover:bg-green-500 hover:text-white ">
+        <span className=" px-10 py-8 rounded-lg uppercase border border-green-500 text-green-500 transition-colors duration-300 ease-in-out hover:bg-green-500 hover:text-white ">
           Next
         </span>
       </Carousel.Next>
