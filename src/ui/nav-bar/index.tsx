@@ -11,7 +11,7 @@ export default function Nav() {
     console.log(week);
   }
   return (
-    <div className=" flex items-center justify-evenly py-4 bg-green-400">
+    <div className=" flex items-center justify-evenly py-4 bg-green-400  mr-9 w-full ">
       <div className="  flex items-center justify-normal space-x-6">
         <p className="text-white ">Select your team : </p>
         <div className="relative text-white ">
