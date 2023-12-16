@@ -1,5 +1,3 @@
-// type HeaderProps = {};
-
 import AppLogo from "../../assets/creat8genius.png";
 import IconButtonWrapper from "../../components/icon-button-wrapper/icon-button-wrapper";
 import Icons from "../../components/icons";
@@ -10,9 +8,6 @@ import { useAppSelector } from "../../shared/hooks";
 import useMediaQuery from "../../shared/hooks/use-media-query/use-media-query";
 import { useActiveModal } from "../../components/modal/use-modal";
 import MobileNav from "../../components/mobile-nav/mobile-nav";
-
-// import Login from "../login";
-// import Logout from "../logout/logout";
 
 export default function Header() {
   const isLoggedIn = useAppSelector((state) => state.auth.isLoggedIn);
