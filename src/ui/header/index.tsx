@@ -1,11 +1,13 @@
 // type HeaderProps = {};
 
 import AppLogo from "../../assets/creat8genius.png";
+import { GiHamburgerMenu } from "react-icons/gi";
 import IconButtonWrapper from "../../components/icon-button-wrapper/icon-button-wrapper";
 import Icons from "../../components/icons";
 import Modal from "../../components/modal/modal";
 import { ModalId } from "../../shared/enums";
 import { useAppSelector } from "../../shared/hooks";
+
 // import Login from "../login";
 // import Logout from "../logout/logout";
 
@@ -13,15 +15,15 @@ export default function Header() {
   const isLoggedIn = useAppSelector((state) => state.auth.isLoggedIn);
   return (
     // <Modal>
-    <div className=" flex items-center justify-between w-full bg-white-500 py-6 px-5  bg-white">
-      <div className="">
-        <img src={AppLogo} alt="crea8genius" />
+    <div className=" grid grid-cols-2 place-items-center md:flex items-center justify-between w-full bg-white-500 py-6 px-5  bg-white">
+      <div className=" flex items-center justify-start">
+        <img src={AppLogo} alt="crea8genius" className="  w-full" />
       </div>
-      <div className=" flex items-center justify-between space-x-6 ">
+      <div className=" flex items-center justify-center space-x-4 md:space-x-0  md:justify-between  ">
         {!isLoggedIn && (
           <div className=" flex items-center justify-start space-x-4">
             <span
-              className="text-xxl hover:text-black duration-0 text-blue-400 mr-10
+              className="text-xxl hover:text-black duration-0 text-blue-400 mr-10 hidden md:visible
               "
             >
               Welcome
@@ -31,6 +33,7 @@ export default function Header() {
             </span>
           </div>
         )}
+        <GiHamburgerMenu />
         <Modal.Open id={!isLoggedIn ? ModalId.Login : ModalId.Logout}>
           <div className=" flex items-center justify-between space-x-4">
             {!isLoggedIn ? (

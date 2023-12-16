@@ -1,17 +1,20 @@
+import { LoginData, RegisterData } from "../types";
 import { QueryClient, useMutation } from "@tanstack/react-query";
 import {
   authLoginUser,
   authLogoutUser,
   authRegisterUser
 } from "../actions/auth";
-import { LoginData, RegisterData } from "../types";
-import { useAppDispatch } from "../../shared/hooks";
 import {
   loginUser as loginUserReducer,
   logoutUser as logoutUserReducer
 } from "../../redux/slice/auth-slice";
 import { removeAccessKey, saveAccessKey } from "../../utils/cookies";
+
+import { redirect } from "react-router-dom";
+import { useAppDispatch } from "../../shared/hooks";
 import { useAppToast } from "../../shared/hooks/use-toast/use-toast";
+
 // import { useState } from "react";
 const queryClient = new QueryClient();
 function useUserLogin() {
@@ -24,6 +27,7 @@ function useUserLogin() {
       queryClient.invalidateQueries();
       saveAccessKey(data.data.key);
       dispatch(loginUserReducer());
+      redirect("/dashboard");
       // console.log("This is the login data : ", data.data);
     }
   });
@@ -77,7 +81,7 @@ function useUserRegister() {
 
   return {
     user: mutation.data,
-    isRegistering: isLoggingIn && mutation.isPending,
+    isRegistering: isLoggingIn || mutation.isPending,
     isSuccess: mutation.isSuccess,
     registerError: mutation.error,
 

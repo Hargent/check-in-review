@@ -1,12 +1,7 @@
-import axios from "axios";
 import { LoginData, RegisterData } from "../types";
-import { getAccessKey } from "../../utils/cookies";
 
-const headers = {
-  Accept: "application/json",
-  "Content-Type": "application/json",
-  "X-CSRFTOKEN": `${getAccessKey() || ""}`
-};
+import axios from "axios";
+import { headers } from "./axios";
 
 async function authLoginUser(loginData: LoginData) {
   // console.log(loginData);
