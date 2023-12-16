@@ -1,6 +1,4 @@
-// type HeaderProps = {};
 
-import { useState } from "react";
 import AppLogo from "../../assets/creat8genius.png";
 import IconButtonWrapper from "../../components/icon-button-wrapper/icon-button-wrapper";
 import Icons from "../../components/icons";
