@@ -1,12 +1,12 @@
 import { UserState, deleteUser, saveUser } from "../../redux/slice/user-slice";
 import { loginUser, logoutUser } from "../../redux/slice/auth-slice";
 
-import Header from "../header";
-import Login from "../login";
-import Logout from "../logout/logout";
+import Header from "../../ui/header";
+import Login from "../../ui/login";
+import Logout from "../../ui/logout/logout";
 import Modal from "../../components/modal/modal";
 import { ModalId } from "../../shared/enums";
-import Register from "../register";
+import Register from "../../ui/register";
 import { ScaleLoader } from "react-spinners";
 import { removeAccessKey } from "../../utils/cookies";
 import { useAppDispatch } from "../../shared/hooks";

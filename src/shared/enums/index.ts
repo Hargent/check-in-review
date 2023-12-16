@@ -38,3 +38,8 @@ export enum ButtonTypes {
   "span",
   "link"
 }
+export enum Teams {
+  develop,
+  design,
+  deploy
+}

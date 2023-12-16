@@ -2,9 +2,9 @@ import { Navigate, createBrowserRouter } from "react-router-dom";
 import ProtectedRoute from "../ui/protected-route/protected-routes";
 import AppLayout from "../ui/app-layout/app-layout";
 import PageNotFound from "../ui/page-not-found/page-not-found";
-import Home from "../ui/home";
+import Home from "../pages/home";
 import Questions from "../ui/questions";
-import DashBoard from "../ui/dashboard";
+import DashBoard from "../pages/dashboard";
 import Loader from "../ui/loader";
 
 const Routes = createBrowserRouter([

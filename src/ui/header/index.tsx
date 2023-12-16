@@ -26,16 +26,16 @@ export default function Header() {
       <div className=" flex items-center justify-start justify-self-start">
         <img src={AppLogo} alt="crea8genius" className="  w-full" />
       </div>
-      <div className=" flex items-center justify-center space-x-4 md:space-x-0  md:justify-between justify-self-end">
+      <div className=" flex items-center  space-x-4  justify-self-end">
         {isLoggedIn && (
           <div className=" flex items-center justify-start space-x-4">
             <span
-              className="text-2xl hover:text-black duration-0 text-blue-400 mr-10 hidden md:visible
+              className="text-2xl hover:text-black duration-0 text-blue-400  hidden md:inline-block
               "
             >
               Welcome
             </span>
-            <span className="text-2xl hover:text-black duration-0 text-blue-400 mr-20">
+            <span className="text-2xl hover:text-black duration-0 text-blue-400 ">
               {user.username}
             </span>
           </div>
