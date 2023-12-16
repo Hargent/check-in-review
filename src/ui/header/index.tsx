@@ -1,5 +1,6 @@
 // type HeaderProps = {};
 
+import { useState } from "react";
 import AppLogo from "../../assets/creat8genius.png";
 import IconButtonWrapper from "../../components/icon-button-wrapper/icon-button-wrapper";
 import Icons from "../../components/icons";
@@ -15,6 +16,7 @@ import MobileNav from "../../components/mobile-nav/mobile-nav";
 // import Logout from "../logout/logout";
 
 export default function Header() {
+  
   const isLoggedIn = useAppSelector((state) => state.auth.isLoggedIn);
   const user = useAppSelector((state) => state.user);
   const media600 = useMediaQuery({ screen: "600px", type: "min" });
@@ -22,6 +24,7 @@ export default function Header() {
 
   // }
   return (
+
     // <Modal>
     <div className=" grid grid-cols-2  md:flex items-center justify-between w-full  py-6 px-5 bg-secondary-500">
       <div className=" flex items-center justify-start justify-self-start">

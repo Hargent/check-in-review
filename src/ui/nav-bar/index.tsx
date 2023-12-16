@@ -38,6 +38,7 @@ export default function Nav() {
     console.log(week);
   }
   return (
+
     <div className=" flex items-center justify-evenly py-4 bg-green-400">
       <div className="  flex items-center flex-col justify-start md:justify-normal space-y-2 md:space-y-0 md:space-x-1 lg:space-x-6 md:flex-row">
         <p className="text-white capitalize text-xs ss:text-sm md:text-lg ">
