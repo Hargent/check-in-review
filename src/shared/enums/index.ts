@@ -29,10 +29,17 @@ export enum ICON_WRAPPER_SIZES {
 }
 export enum ModalId {
   "Login",
-  "Logout"
+  "Logout",
+  "Register",
+  "MobileNav"
 }
 export enum ButtonTypes {
   "button",
   "span",
   "link"
+}
+export enum Teams {
+  develop,
+  design,
+  deploy
 }

@@ -34,7 +34,7 @@ const IconButtonWrapper = ({
           disabled={disabled}
           className={`${
             !isBorder && "border-none"
-          } outline-none focus:outline-none overflow-hidden  ${computedSize}  ${extendedClassNames} disabled:cursor-not-allowed !disabled:bg-transparent `}
+          } outline-none focus:outline-none overflow-hidden  ${computedSize}  ${`${extendedClassNames}`} disabled:cursor-not-allowed !disabled:bg-transparent `}
           onClick={onClick}
           {...otherProps}
         >
