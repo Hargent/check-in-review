@@ -13,6 +13,8 @@ import { useAppSelector } from "../../shared/hooks";
 
 export default function Header() {
   const isLoggedIn = useAppSelector((state) => state.auth.isLoggedIn);
+  const user = useAppSelector((state) => state.user);
+
   return (
     // <Modal>
     <div className=" grid grid-cols-2 place-items-center md:flex items-center justify-between w-full bg-white-500 py-6 px-5  bg-white">
@@ -20,7 +22,7 @@ export default function Header() {
         <img src={AppLogo} alt="crea8genius" className="  w-full" />
       </div>
       <div className=" flex items-center justify-center space-x-4 md:space-x-0  md:justify-between  ">
-        {!isLoggedIn && (
+        {isLoggedIn && (
           <div className=" flex items-center justify-start space-x-4">
             <span
               className="text-xxl hover:text-black duration-0 text-blue-400 mr-10 hidden md:visible
@@ -29,7 +31,7 @@ export default function Header() {
               Welcome
             </span>
             <span className="text-xxl hover:text-black duration-0 text-blue-400 mr-20">
-              Hargent
+              {user.username}
             </span>
           </div>
         )}
