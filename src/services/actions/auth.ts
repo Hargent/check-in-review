@@ -1,16 +1,15 @@
 import { LoginData, RegisterData } from "../types";
 
+import { GetHeaders } from "./axios";
 import axios from "axios";
-import { headers } from "./axios";
 
 async function authLoginUser(loginData: LoginData) {
-  // console.log(loginData);
   try {
     const response = await axios.post(
       "https://check-in-review.onrender.com/api/login/",
       loginData,
       {
-        headers
+        headers: GetHeaders()
       }
     );
     return response;
@@ -23,13 +22,13 @@ async function authLoginUser(loginData: LoginData) {
   }
 }
 async function authRegisterUser(registerData: RegisterData) {
-  console.log(registerData);
+  // console.log(registerData);
   try {
     const response = await axios.post(
       "https://check-in-review.onrender.com/api/registration/",
       registerData,
       {
-        headers
+        headers: GetHeaders()
       }
     );
 
@@ -54,7 +53,7 @@ async function authLogoutUser() {
     const response = await axios.post(
       "https://check-in-review.onrender.com/api/logout/",
       {
-        headers
+        headers: GetHeaders()
       }
     );
 

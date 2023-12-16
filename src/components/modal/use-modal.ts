@@ -35,8 +35,12 @@ function useActiveModal() {
     if (id !== openId) return;
     toggleActive?.();
   }
+  function isModalActive(id: ModalId) {
+    if (id === openId) return true;
+    return false;
+  }
 
-  return { setModalActive, setModalInActive };
+  return { setModalActive, setModalInActive, isModalActive };
 }
 function useCloseModal(id: ModalId, outsideClose: boolean) {
   const { openId, close } = useContext(ModalContext);

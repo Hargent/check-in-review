@@ -1,17 +1,21 @@
-import { Outlet } from "react-router-dom";
-import React from "react";
 import Header from "../header";
-import Modal from "../../components/modal/modal";
-import { ModalId } from "../../shared/enums";
-import Register from "../register";
 import Login from "../login";
 import Logout from "../logout/logout";
+import Modal from "../../components/modal/modal";
+import { ModalId } from "../../shared/enums";
+import Nav from "../nav-bar";
+import { Outlet } from "react-router-dom";
+import React from "react";
+import Register from "../register";
+
+// import MobileNav from "../../components/mobile-nav/mobile-nav";
 
 const AppLayout: React.FC = () => {
   return (
     <Modal>
       <main className="">
         <Header />
+        <Nav />
         <section>
           <div>
             <Outlet />

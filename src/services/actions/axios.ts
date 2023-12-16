@@ -1,9 +1,17 @@
 import { getAccessKey } from "../../utils/cookies";
 
-const headers = {
-  Accept: "application/json",
-  "Content-Type": "application/json",
+function GetHeaders() {
+  const accessKey = getAccessKey();
+  console.log(accessKey, " : is the access key");
+  const authorization = accessKey ? `Token ${accessKey}` : "";
 
-  Authorization: `Token ${getAccessKey() || ""}`
-};
-export { headers };
+  const headers = {
+    Accept: "application/json",
+    "Content-Type": "application/json",
+
+    Authorization: authorization
+  };
+
+  return headers;
+}
+export { GetHeaders };

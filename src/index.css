@@ -29,6 +29,29 @@
   transform: translateX(100%);
   opacity: 0;
 }
+/* mobile nav */
+.modal-animate-enter {
+  animation: enter-from-right 500ms ease-in-out;
+}
+.modal-animate-leave {
+  animation: close-to-right 500ms ease-in-out;
+}
+@keyframes enter-from-right {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+@keyframes close-to-right {
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 0%;
+  }
+}
 
 /* .animated {
   @apply transition-all  duration-500 ease-in-out transform -translate-x-0;

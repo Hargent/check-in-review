@@ -1,13 +1,14 @@
-import { ModalId } from "../../shared/enums";
-import { TimeDelay } from "../../shared/constants";
-import { useModalPreload } from "../../shared/hooks/use-modal-preload/use-modal-preload";
 import ButtonPrimary from "../../components/button-primary/button-primary";
+import { ModalId } from "../../shared/enums";
 import { ScaleLoader } from "react-spinners";
+import { TimeDelay } from "../../shared/constants";
+import { useEffect } from "react";
 import { useModalAutoTrigger } from "../../components/modal/use-modal";
+import { useModalPreload } from "../../shared/hooks/use-modal-preload/use-modal-preload";
+import { useUserLogout } from "../../services/hooks/auth";
+
 // import { useAppDispatch } from "../../shared/hooks";
 // import { logoutUser as setUserLogout } from "../../redux/slice/auth-slice";
-import { useUserLogout } from "../../services/hooks/auth";
-import { useEffect } from "react";
 
 export default function Logout() {
   const { autoTriggerModal } = useModalAutoTrigger();
@@ -36,11 +37,13 @@ export default function Logout() {
       <p className=" font-bold text-2xl uppercase tracking-wider">
         Confirm logout
       </p>
-      <div className="self-center">
-        <p className=" w-full  text-center text-red-500 text-sm font-bold">
-          {`${logoutError || ""}`}
-        </p>
-      </div>
+      {logoutError && (
+        <div className="self-center">
+          <p className=" w-full  text-center text-red-500 text-sm font-bold">
+            {`${logoutError || ""}`}
+          </p>
+        </div>
+      )}
       <div className=" flex w-full items-center justify-between">
         <ButtonPrimary
           onClick={handleCancel}
