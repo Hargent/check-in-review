@@ -8,6 +8,8 @@ import { Outlet } from "react-router-dom";
 import React from "react";
 import Register from "../register";
 
+// import MobileNav from "../../components/mobile-nav/mobile-nav";
+
 const AppLayout: React.FC = () => {
   return (
     <Modal>

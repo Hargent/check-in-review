@@ -11,13 +11,15 @@ import {
 } from "../../redux/slice/auth-slice";
 import { removeAccessKey, saveAccessKey } from "../../utils/cookies";
 
-import { redirect } from "react-router-dom";
+import { deleteUser } from "../../redux/slice/user-slice";
 import { useAppDispatch } from "../../shared/hooks";
 import { useAppToast } from "../../shared/hooks/use-toast/use-toast";
+import { useNavigate } from "react-router-dom";
 
 // import { useState } from "react";
 const queryClient = new QueryClient();
 function useUserLogin() {
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const mutation = useMutation({
     mutationKey: ["user-login"],
@@ -27,7 +29,7 @@ function useUserLogin() {
       queryClient.invalidateQueries();
       saveAccessKey(data.data.key);
       dispatch(loginUserReducer());
-      redirect("/dashboard");
+      navigate("/dashboard");
       // console.log("This is the login data : ", data.data);
     }
   });
@@ -62,6 +64,8 @@ function useUserRegister() {
         };
         loginUser(loginData);
       }
+      // redirect("/dashboard");
+
       console.log(user);
       // queryClient.invalidateQueries();
       // console.log(
@@ -91,6 +95,7 @@ function useUserRegister() {
 function useUserLogout() {
   const dispatch = useAppDispatch();
   const toaster = useAppToast();
+  const navigate = useNavigate();
   // const [isSuccess, setIsSuccess] = useState(false);
   const mutation = useMutation({
     mutationKey: ["user-logout"],
@@ -101,6 +106,8 @@ function useUserLogout() {
       toaster(data.data.detail, "success");
       removeAccessKey();
       dispatch(logoutUserReducer());
+      dispatch(deleteUser());
+      navigate("/home");
     }
   });
 

@@ -1,16 +1,18 @@
 import { SubmitHandler, useForm } from "react-hook-form";
-import { useModalPreload } from "../../shared/hooks/use-modal-preload/use-modal-preload";
-import { ScaleLoader } from "react-spinners";
-import { TimeDelay } from "../../shared/constants";
+
 import ButtonPrimary from "../../components/button-primary/button-primary";
-// import { useAppDispatch } from "../../shared/hooks";
-// import { loginUser as setUserLogin } from "../../redux/slice/auth-slice";
-import { useUserLogin } from "../../services/hooks/auth";
+import { LoginData } from "../../services/types";
 import Modal from "../../components/modal/modal";
 import { ModalId } from "../../shared/enums";
-import { LoginData } from "../../services/types";
-import { useModalAutoTrigger } from "../../components/modal/use-modal";
+import { ScaleLoader } from "react-spinners";
+import { TimeDelay } from "../../shared/constants";
 import { useEffect } from "react";
+import { useModalAutoTrigger } from "../../components/modal/use-modal";
+import { useModalPreload } from "../../shared/hooks/use-modal-preload/use-modal-preload";
+import { useUserLogin } from "../../services/hooks/auth";
+
+// import { useAppDispatch } from "../../shared/hooks";
+// import { loginUser as setUserLogin } from "../../redux/slice/auth-slice";
 
 // import Register from "../register";
 
@@ -30,7 +32,6 @@ export default function Login() {
     loginUser(data);
   };
   useEffect(() => {
-    
     if (!isSuccess) return;
     autoTriggerModal({ action: "close", id: ModalId.Login });
   }, [autoTriggerModal, isSuccess]);
@@ -49,7 +50,7 @@ export default function Login() {
       </h1>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className=" w-4/5 mx-auto flex flex-col items-start justify-start space-y-6 text-gray-400"
+        className="w-full px-2 sm:px-0 sm:w-4/5 mx-auto flex flex-col items-start justify-start space-y-6 text-gray-400"
       >
         <div className=" flex flex-col items-start justify-start space-y-2 w-full">
           <label
@@ -128,11 +129,13 @@ export default function Login() {
             </p>
           )}
         </div>
-        <div className="self-center">
-          <p className=" w-full  text-center text-red-500 text-sm font-bold">
-            {`${loginError || ""}`}
-          </p>
-        </div>
+        {loginError && (
+          <div className="self-center">
+            <p className=" w-full  text-center text-red-500 text-sm font-bold">
+              {`${loginError || ""}`}
+            </p>
+          </div>
+        )}
         <ButtonPrimary
           disabled={isLoggingIn}
           type="submit"
@@ -149,7 +152,7 @@ export default function Login() {
           )}
           <span>login</span>
         </ButtonPrimary>
-        <div className=" text-gray-600 flex items-center justify-start space-x-2 self-center">
+        <div className=" text-gray-600 flex flex-col sm:flex-row items-center justify-start space-y-3 sm:space-x-2 self-center">
           <span>Not registered yet ? </span>
 
           <Modal.Open id={ModalId.Register}>

@@ -1,14 +1,15 @@
 import { SubmitHandler, useForm } from "react-hook-form";
-import { ScaleLoader } from "react-spinners";
-import { useModalPreload } from "../../shared/hooks/use-modal-preload/use-modal-preload";
-import { TimeDelay } from "../../shared/constants";
+
 import ButtonPrimary from "../../components/button-primary/button-primary";
 import Modal from "../../components/modal/modal";
 import { ModalId } from "../../shared/enums";
-import { useUserRegister } from "../../services/hooks/auth";
 import { RegisterData } from "../../services/types";
-import { useModalAutoTrigger } from "../../components/modal/use-modal";
+import { ScaleLoader } from "react-spinners";
+import { TimeDelay } from "../../shared/constants";
 import { useEffect } from "react";
+import { useModalAutoTrigger } from "../../components/modal/use-modal";
+import { useModalPreload } from "../../shared/hooks/use-modal-preload/use-modal-preload";
+import { useUserRegister } from "../../services/hooks/auth";
 
 export default function Register() {
   const {
@@ -58,7 +59,7 @@ export default function Register() {
       </h1>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className=" w-4/5 mx-auto flex flex-col items-start justify-start space-y-6 text-gray-400"
+        className="w-full px-2 sm:px-0 sm:w-4/5 mx-auto flex flex-col items-start justify-start space-y-6 text-gray-400"
       >
         <div className=" flex flex-col items-start justify-start space-y-2 w-full">
           <label
@@ -151,11 +152,13 @@ export default function Register() {
             </div>
           )}
         </div>
-        <div className="self-center">
-          <p className=" w-full  text-center text-red-500 text-sm font-bold">
-            {`${registerError || ""}`}
-          </p>
-        </div>
+        {registerError && (
+          <div className="self-center">
+            <p className=" w-full  text-center text-red-500 text-sm font-bold">
+              {`${registerError || ""}`}
+            </p>
+          </div>
+        )}
         <ButtonPrimary
           disabled={isRegistering}
           type="submit"

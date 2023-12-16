@@ -15,16 +15,18 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
   const { user, userError, fetchedUser, fetchingUser } = useUser();
 
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   // const isGettingUser = false;
   // const isAuthenticated = false;
-  const navigate = useNavigate();
+  
   useEffect(() => {
     if (userError) {
       navigate("/home");
     } else {
       navigate("/");
     }
-  }, [navigate, userError]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [userError]);
   if (fetchingUser) {
     return <Loader />;
   }
