@@ -25,7 +25,7 @@ export default function QuestionCategory({ category }: Props) {
     >
       {/* <CSSTransition in={inProp} timeout={300} classNames="fade"> */}
       <div className="animated flex flex-col items-start justify-start space-y-8">
-        <header className=" self-center font-bold text-3xl uppercase transition-all duration-300 ease-in-out hover:text-transparent hover:bg-gradient-to-r from-green-300 to-green-700 cursor-default hover:bg-clip-text">
+        <header className=" self-center font-bold text-3xl uppercase transition-all duration-300 ease-in-out hover:text-transparent hover:bg-gradient-to-r from-gray-300 to-gray-700 cursor-default hover:bg-clip-text">
           {category.category}
         </header>
         <div className=" w-4/5 mx-auto">

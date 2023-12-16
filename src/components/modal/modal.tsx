@@ -29,7 +29,9 @@ const Modal: React.FC<ModalProps> & {
     if (isActive) return;
     setOpenId("");
   };
-  const setOpen = (id: ModalId) => setOpenId(id);
+  const setOpen = (id: ModalId) => {
+    setOpenId(id);
+  };
   // console.log(openId);
   const forceOpenModal = (id: ModalId) => setOpenId(id);
   const forceCloseModal = () => setOpenId("");
@@ -57,7 +59,7 @@ const Modal: React.FC<ModalProps> & {
 function Open({
   children,
   id,
-  additionalClassName
+  additionalClassName = ""
 }: {
   additionalClassName?: string;
   children: React.ReactElement;
@@ -84,12 +86,14 @@ function Window({
   id,
   isChildren = false /*is it a child of its parent or body*/,
   additionalClass,
-  outsideClose = true
+  outsideClose = true,
+  containerClass
 }: {
   children: React.ReactElement;
   id: ModalId;
   isChildren?: boolean;
   additionalClass: string;
+  containerClass?: string;
   outsideClose: boolean;
 }) {
   const { openId, close } = useContext(ModalContext);
@@ -99,9 +103,11 @@ function Window({
 
   if (isChildren) {
     return (
-      <div className={additionalClass}>
-        <div ref={ref}>
-          {React.cloneElement(children, { onCloseModal: close })}
+      <div className={`${containerClass}`}>
+        <div className={additionalClass}>
+          <div ref={ref}>
+            {React.cloneElement(children, { onCloseModal: close })}
+          </div>
         </div>
       </div>
     );
@@ -109,7 +115,7 @@ function Window({
 
   return createPortal(
     <div
-      className={`overflow-auto w-full h-full fixed top-0 left-0 flex items-center justify-center bg-ffq-overlay  bg-opacity-90 backdrop-blur-sm ${additionalClass} z-50`}
+      className={`overflow-auto w-full h-full fixed top-0 left-0 flex items-center justify-center  bg-opacity-90 backdrop-blur-sm  z-50`}
     >
       <div
         className={`${
@@ -130,7 +136,7 @@ Modal.Open = Open;
 function RenderComponentWithProps({
   children,
   props,
-  additionalClassName
+  additionalClassName = ""
 }: {
   children: React.ReactNode;
   additionalClassName?: string;

@@ -23,35 +23,55 @@ function getCurrentDay() {
   return currentDay;
 }
 
-function getWeeksInMonth(month: Month, startDayOfWeek = 0): number {
+// function getWeeksInMonth(month: Month, startDayOfWeek = 0): number {
+//   const currentYear = new Date().getFullYear();
+
+//   // Ensure month is in the range 1-12
+//   month = Math.min(12, Math.max(1, month));
+
+//   // Get the first and last day of the month
+//   const firstDay = new Date(currentYear, month - 1, 1);
+//   const lastDay = new Date(currentYear, month, 0);
+
+//   // Set the start day of the week (0 for Sunday, 1 for Monday, etc.)
+//   const startDay = (firstDay.getDay() - startDayOfWeek + 7) % 7;
+
+//   // Calculate the total number of days in the month
+//   const totalDays = lastDay.getDate();
+
+//   // Calculate the number of full weeks
+//   const fullWeeks = Math.floor((totalDays - startDay + 6) / 7);
+
+//   // Check if there's a partial week at the beginning or end
+//   const hasPartialWeek =
+//     (startDay > 0 && totalDays >= startDay) ||
+//     lastDay.getDay() !== startDayOfWeek;
+
+//   // Return the total number of weeks
+//   return fullWeeks + (hasPartialWeek ? 1 : 0);
+// }
+function getTotalWeeksInMonth(month: Month): string[] {
   const currentYear = new Date().getFullYear();
 
-  // Ensure month is in the range 1-12
-  month = Math.min(12, Math.max(1, month));
+  const calendar = new Date(currentYear, month - 1, 1); // Set the date to the first day of the month
 
-  // Get the first and last day of the month
-  const firstDay = new Date(currentYear, month - 1, 1);
-  const lastDay = new Date(currentYear, month, 0);
+  const firstDay = calendar.getDay();
+  const lastDay = new Date(
+    calendar.getFullYear(),
+    calendar.getMonth() + 1,
+    0
+  ).getDate();
 
-  // Set the start day of the week (0 for Sunday, 1 for Monday, etc.)
-  const startDay = (firstDay.getDay() - startDayOfWeek + 7) % 7;
+  const totalDays = lastDay + firstDay - 1;
+  const totalWeeks = Math.ceil(totalDays / 7);
 
-  // Calculate the total number of days in the month
-  const totalDays = lastDay.getDate();
+  const weeks = Array.from({ length: totalWeeks }, (_, i) => `week ${i + 1}`);
 
-  // Calculate the number of full weeks
-  const fullWeeks = Math.floor((totalDays - startDay + 6) / 7);
-
-  // Check if there's a partial week at the beginning or end
-  const hasPartialWeek =
-    (startDay > 0 && totalDays >= startDay) ||
-    lastDay.getDay() !== startDayOfWeek;
-
-  // Return the total number of weeks
-  return fullWeeks + (hasPartialWeek ? 1 : 0);
+  // console.log(weeks, " : is the number of weeks");
+  return weeks;
 }
 export {
-  getWeeksInMonth,
+  getTotalWeeksInMonth,
   getCurrentDay,
   convertPxToRem,
   uniqueArray,
