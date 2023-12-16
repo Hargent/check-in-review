@@ -20,7 +20,7 @@ function MobileNav({ onCloseModal }: { onCloseModal?: (id: ModalId) => void }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [media600]);
   return (
-    <div className=" overflow-hidden relative w-full h-screen bg-blue-600  flex items-center flex-col justify-center space-y-10">
+    <div className=" overflow-hidden relative w-full h-screen bg-primary-300  flex items-center flex-col justify-center space-y-10">
       <IconButtonWrapper
         extendedClassNames=" absolute top-0 right-0 p-3 rounded-full bg-white mr-4 mt-4 "
         onClick={() => onCloseModal?.(ModalId.MobileNav)}

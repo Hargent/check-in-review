@@ -39,8 +39,11 @@ export default function Nav() {
   }
   return (
     <div className=" flex items-center justify-evenly py-4 bg-green-400">
-      <div className="  flex items-center justify-normal space-x-6">
-        <p className="text-white ">Select your team : </p>
+      <div className="  flex items-center flex-col justify-start md:justify-normal space-y-2 md:space-y-0 md:space-x-1 lg:space-x-6 md:flex-row">
+        <p className="text-white capitalize text-xs ss:text-sm md:text-lg ">
+          Select your team{" "}
+        </p>
+        <span className="hidden md:inline-block text-white">: </span>
         <div className="relative text-white ">
           <Dropdown
             title="teams"
@@ -55,8 +58,11 @@ export default function Nav() {
           />
         </div>
       </div>
-      <div className="  flex items-center justify-normal space-x-6">
-        <p className="text-white">Select month : </p>
+      <div className="  flex items-center flex-col justify-start md:justify-center space-y-2 md:space-y-0 md:space-x-1 lg:space-x-6 md:flex-row">
+        <p className="text-white capitalize text-xs ss:text-sm md:text-lg ">
+          Select month{" "}
+        </p>
+        <span className="hidden md:inline-block text-white">: </span>
         <div className="relative text-white">
           <Dropdown
             title="month"
@@ -71,8 +77,11 @@ export default function Nav() {
           />
         </div>
       </div>
-      <div className="  flex items-center justify-normal space-x-6">
-        <p className="text-white">Select your team : </p>
+      <div className=" flex items-center flex-col justify-start md:justify-normal space-y-2 md:space-y-0 md:space-x-1 lg:space-x-6 md:flex-row">
+        <p className="text-white capitalize text-xs ss:text-sm md:text-lg ">
+          Select week{" "}
+        </p>
+        <span className="hidden md:inline-block text-white">: </span>
         <div className="relative  text-white">
           <Dropdown
             title="week"

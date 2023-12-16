@@ -1,3 +1,3 @@
 export default function DashBoard() {
-  return <div></div>;
+  return <div>take QuestionCategory check results</div>;
 }
