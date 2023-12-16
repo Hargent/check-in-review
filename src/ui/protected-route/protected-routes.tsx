@@ -2,9 +2,9 @@ import { UserState, saveUser } from "../../redux/slice/user-slice";
 
 import Loader from "../loader";
 import { loginUser } from "../../redux/slice/auth-slice";
-import { redirect } from "react-router-dom";
 import { useAppDispatch } from "../../shared/hooks";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { useUser } from "../../services/hooks/user";
 
 type ProtectedRouteProps = {
@@ -17,21 +17,19 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
   const dispatch = useAppDispatch();
   // const isGettingUser = false;
   // const isAuthenticated = false;
+  const navigate = useNavigate();
   useEffect(() => {
     if (userError) {
-      redirect("/home");
+      navigate("/home");
     } else {
-      redirect("/");
+      navigate("/");
     }
-  }, [userError]);
+  }, [navigate, userError]);
   if (fetchingUser) {
     return <Loader />;
   }
 
   if (fetchedUser && user) {
-    console.log("====================================");
-    console.log(user.data);
-    console.log("====================================");
     dispatch(saveUser({ ...user.data } as UserState));
     dispatch(loginUser());
     return children;

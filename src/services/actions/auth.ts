@@ -15,6 +15,7 @@ async function authLoginUser(loginData: LoginData) {
     );
     return response;
   } catch (err: unknown) {
+    console.log(err);
     const errr = err as {
       [key: string]: { [key: string]: { [key: string]: [] } };
     };
@@ -32,14 +33,6 @@ async function authRegisterUser(registerData: RegisterData) {
         headers
       }
     );
-
-    // if (response.status === 204) {
-    //   const loginData: LoginData = {
-    //     username: registerData.username,
-    //     password: registerData.password1
-    //   };
-    //   const authLoginUser(loginData);
-    // }
     return response;
   } catch (err) {
     const errr = err as {
