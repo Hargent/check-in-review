@@ -67,7 +67,7 @@ function getTotalWeeksInMonth(month: Month): string[] {
 
   const weeks = Array.from({ length: totalWeeks }, (_, i) => `week ${i + 1}`);
 
-  // console.log(weeks, " : is the number of weeks");
+  // (weeks, " : is the number of weeks");
   return weeks;
 }
 export {

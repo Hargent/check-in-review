@@ -20,7 +20,7 @@ export default function Nav() {
         team: Teams[team as keyof typeof Teams]
       })
     );
-    console.log(team);
+    team;
   }
   function handleMonthSelect(month: string) {
     dispatch(
@@ -28,7 +28,7 @@ export default function Nav() {
         month: Month[month as keyof typeof Month]
       })
     );
-    console.log(month);
+    month;
   }
   function handleWeekSelect(week: string) {
     dispatch(
@@ -36,7 +36,7 @@ export default function Nav() {
         week
       })
     );
-    console.log(week);
+    week;
   }
   return (
     <div className=" flex items-center justify-evenly py-2 bg-primary-200">

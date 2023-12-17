@@ -30,7 +30,7 @@ function useUserLogin() {
       saveAccessKey(data.data.key);
       dispatch(loginUserReducer());
       navigate("/dashboard");
-      // console.log("This is the login data : ", data.data);
+      // ("This is the login data : ", data.data);
     }
   });
 
@@ -66,9 +66,9 @@ function useUserRegister() {
       }
       // redirect("/dashboard");
 
-      console.log(user);
+      user;
       // queryClient.invalidateQueries();
-      // console.log(
+      // (
       //   "This is the userd data : ",
       //   JSON.parse(userData.config.data)
       // );

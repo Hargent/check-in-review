@@ -1,5 +1,5 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Month, Teams } from "../../shared/enums";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 export type ReviewItem = { answer: string; category: string; question: string };
 export type Review = {
@@ -38,7 +38,7 @@ export const reviewSlice = createSlice({
       state.team.week = action.payload.week;
     },
     setUserReview: (state, action: PayloadAction<{ reviews: Review }>) => {
-      // console.log(action.);
+      // (action.);
       // remove if it exists
       const newState = state.reviews.filter(
         (review) => review.category !== action.payload.reviews.category

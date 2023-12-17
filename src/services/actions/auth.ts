@@ -14,7 +14,7 @@ async function authLoginUser(loginData: LoginData) {
     );
     return response;
   } catch (err: unknown) {
-    console.log(err);
+    err;
     const errr = err as {
       [key: string]: { [key: string]: { [key: string]: [] } };
     };
@@ -23,7 +23,7 @@ async function authLoginUser(loginData: LoginData) {
   }
 }
 async function authRegisterUser(registerData: RegisterData) {
-  // console.log(registerData);
+  // (registerData);
   try {
     const response = await axios.post(
       "https://check-in-review.onrender.com/api/registeration/",

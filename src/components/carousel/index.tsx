@@ -33,7 +33,7 @@ function Carousel({ children }: Props) {
   // custom usage
   const [isTheEnd, setIsTheEnd] = useState(false);
   useEffect(() => {
-    // console.log(items, currentId);
+    // (items, currentId);
     if (currentId === items.length - 1) {
       setIsTheEnd(true);
     }
