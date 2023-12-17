@@ -2,7 +2,7 @@ import { AppQuestions } from "../../data";
 import Carousel from "../../components/carousel";
 import QuestionCategory from "../../components/question-category";
 
-export default function Questions() {
+export default function Reviews() {
   return (
     <Carousel>
       <Carousel.Prev>

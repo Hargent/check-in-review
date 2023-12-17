@@ -1,43 +1,68 @@
+import { Link, useLocation } from "react-router-dom";
 
 import AppLogo from "../../assets/creat8genius.png";
 import IconButtonWrapper from "../../components/icon-button-wrapper/icon-button-wrapper";
 import Icons from "../../components/icons";
-
+import MobileNav from "../../components/mobile-nav/mobile-nav";
 import Modal from "../../components/modal/modal";
 import { ModalId } from "../../shared/enums";
+import { useActiveModal } from "../../components/modal/use-modal";
 import { useAppSelector } from "../../shared/hooks";
 import useMediaQuery from "../../shared/hooks/use-media-query/use-media-query";
-import { useActiveModal } from "../../components/modal/use-modal";
-import MobileNav from "../../components/mobile-nav/mobile-nav";
-
-// import Login from "../login";
-// import Logout from "../logout/logout";
 
 export default function Header() {
-  
   const isLoggedIn = useAppSelector((state) => state.auth.isLoggedIn);
   const user = useAppSelector((state) => state.user);
   const media600 = useMediaQuery({ screen: "600px", type: "min" });
   const { isModalActive } = useActiveModal();
+  const location = useLocation();
+  const currentPath = location.pathname;
 
   // }
   return (
-
     // <Modal>
-    <div className=" grid grid-cols-2  md:flex items-center justify-between w-full  py-6 px-5 bg-secondary-500">
+    <div className=" grid grid-cols-2  md:flex items-center justify-between w-full  py-3 px-5 bg-primary-500">
       <div className=" flex items-center justify-start justify-self-start">
         <img src={AppLogo} alt="crea8genius" className="  w-full" />
       </div>
+      {media600 && isLoggedIn && (
+        <div className=" flex capitalize items-center justify-center space-x-4 ">
+          {currentPath !== "/dashboard" && (
+            <Link
+              to={"/dashboard"}
+              className="transition-colors duration-300 ease-in-out text-lg text-primary-200 hover:border-b-primary-200 border border-transparent"
+            >
+              dashboard
+            </Link>
+          )}
+          {currentPath !== "/results" && (
+            <Link
+              to={"/results"}
+              className="transition-colors duration-300 ease-in-out text-lg text-primary-200 hover:border-b-primary-200 border border-transparent"
+            >
+              results
+            </Link>
+          )}
+          {currentPath !== "/review" && (
+            <Link
+              className="transition-colors duration-300 ease-in-out text-lg text-primary-200 hover:border-b-primary-200 border border-transparent"
+              to={"/review"}
+            >
+              review
+            </Link>
+          )}
+        </div>
+      )}
       <div className=" flex items-center  space-x-4  justify-self-end">
         {isLoggedIn && (
-          <div className=" flex items-center justify-start space-x-4 cursor-default">
+          <div className=" flex items-center justify-start space-x-4 cursor-default hover:animate-pulse">
             <span
-              className="text-2xl hover:text-primary duration-0 text-primary-700  hidden md:inline-block
+              className="text-2xl   duration-0 text-primary-200  hidden md:inline-block
               "
             >
               Welcome
             </span>
-            <span className="text-2xl hover:text-primary duration-0 text-primary-700">
+            <span className="text-2xl  duration-0 text-primary-200">
               {user.username}
             </span>
           </div>
@@ -45,7 +70,7 @@ export default function Header() {
         <div className=" flex items-center justify-end ">
           {!media600 ? (
             <Modal.Open id={ModalId.MobileNav} additionalClassName="self-end">
-              <IconButtonWrapper extendedClassNames=" p-3 rounded-full transition-colors duration-300 ease-in-out bg-auxiliary-300 hover:bg-auxiliary-700 ">
+              <IconButtonWrapper extendedClassNames=" p-3 rounded-full transition-colors duration-300 ease-in-out bg-primary-300 hover:bg-primary-300 ">
                 <Icons.IconMenuOpen fillColor="white" size={20} />
               </IconButtonWrapper>
             </Modal.Open>
@@ -54,7 +79,7 @@ export default function Header() {
               id={!isLoggedIn ? ModalId.Login : ModalId.Logout}
               additionalClassName=" self-end"
             >
-              <div className=" flex items-center justify-end space-x-4 text-2xl text-white  bg-blue-500 border-red-300 px-5 py-2 rounded-md hover:text-blue duration-0 hover:bg-blue-500">
+              <div className=" flex items-center justify-end space-x-4 text-2xl text-white  bg-primary-100 border-transparent px-5 py-2 capitalize  hover:text-primary-200 duration-0 hover:bg-transparent border rounded-lg hover:border-primary-100">
                 {!isLoggedIn ? (
                   <span className="">Login</span>
                 ) : (
