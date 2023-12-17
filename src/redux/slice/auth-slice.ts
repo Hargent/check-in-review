@@ -13,11 +13,11 @@ export const authSlice = createSlice({
   initialState,
   reducers: {
     loginUser: (state) => {
-      console.log("logging in user now....");
+      ("logging in user now....");
       state.isLoggedIn = true;
     },
     logoutUser: (state) => {
-      console.log("logging out user now....");
+      ("logging out user now....");
       state.isLoggedIn = false;
     }
   }

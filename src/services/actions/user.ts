@@ -2,7 +2,7 @@ import { GetHeaders } from "./axios";
 import axios from "axios";
 
 async function fetchUser() {
-  console.log(GetHeaders());
+  GetHeaders();
   try {
     const response = await axios.get(
       "https://check-in-review.onrender.com/api/user/",
@@ -10,7 +10,7 @@ async function fetchUser() {
         headers: GetHeaders()
       }
     );
-    console.log(response);
+    response;
     return response;
   } catch (err) {
     const errr = err as {

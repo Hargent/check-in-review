@@ -1,7 +1,7 @@
 // import { deleteCookie, getCookie, hasCookie, setCookie } from "cookies-next";
 
 // const saveCookieDetails = (cookieName, cookieDetails, maxAge = 60 * 60 * 2) => {
-//   // console.log("saving cookies", cookieName, cookieDetails);
+//   // ("saving cookies", cookieName, cookieDetails);
 //   setCookie(cookieName, JSON.stringify(cookieDetails), {
 //     path: "/",
 //     maxAge: maxAge // expires in 7 days
@@ -18,7 +18,7 @@
 // };
 
 // const removeCookieDetails = (cookieName) => {
-//   // console.log("destroying cookie : ", cookieName);
+//   // ("destroying cookie : ", cookieName);
 //   const isCookie = hasCookie(cookieName);
 //   if (!isCookie) return;
 //   deleteCookie(cookieName);

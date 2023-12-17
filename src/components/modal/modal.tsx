@@ -32,7 +32,7 @@ const Modal: React.FC<ModalProps> & {
   const setOpen = (id: ModalId) => {
     setOpenId(id);
   };
-  // console.log(openId);
+  // (openId);
   const forceOpenModal = (id: ModalId) => setOpenId(id);
   const forceCloseModal = () => setOpenId("");
   const toggleActive = () => {
