@@ -34,7 +34,7 @@ export default function Logout() {
   }
   return (
     <div className=" text-white flex flex-col items-center justify-center bg-gray-400  rounded-lg  mx-auto p-10 space-y-10 w-1/2">
-      <p className=" font-bold text-2xl uppercase tracking-wider">
+      <p className=" font-bold text-lg lg:text-2xl uppercase tracking-wider">
         Confirm logout
       </p>
       {logoutError && (

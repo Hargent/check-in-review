@@ -13,7 +13,7 @@ import useMediaQuery from "../../shared/hooks/use-media-query/use-media-query";
 export default function Header() {
   const isLoggedIn = useAppSelector((state) => state.auth.isLoggedIn);
   const user = useAppSelector((state) => state.user);
-  const media600 = useMediaQuery({ screen: "600px", type: "min" });
+  const media640 = useMediaQuery({ screen: "640px", type: "min" });
   const { isModalActive } = useActiveModal();
   const location = useLocation();
   const currentPath = location.pathname;
@@ -21,16 +21,19 @@ export default function Header() {
   // }
   return (
     // <Modal>
-    <div className=" grid grid-cols-2  md:flex items-center justify-between w-full  py-3 px-5 bg-primary-500">
-      <div className=" flex items-center justify-start justify-self-start">
+    <div className=" grid grid-cols-2 sm:grid-cols-[1fr_0.5fr_1fr]  md:flex items-center justify-between w-full  py-3 px-5 bg-primary-500">
+      <Link
+        to={"/home"}
+        className=" flex items-center justify-start justify-self-start"
+      >
         <img src={AppLogo} alt="crea8genius" className="  w-full" />
-      </div>
-      {media600 && isLoggedIn && (
+      </Link>
+      {media640 && isLoggedIn && (
         <div className=" flex capitalize items-center justify-center space-x-4 ">
           {currentPath !== "/dashboard" && (
             <Link
               to={"/dashboard"}
-              className="transition-colors duration-300 ease-in-out text-lg text-primary-200 hover:border-b-primary-200 border border-transparent"
+              className="transition-colors duration-300 ease-in-out text-xs md:text-lg text-primary-200 hover:border-b-primary-200 border border-transparent"
             >
               dashboard
             </Link>
@@ -38,14 +41,14 @@ export default function Header() {
           {currentPath !== "/results" && (
             <Link
               to={"/results"}
-              className="transition-colors duration-300 ease-in-out text-lg text-primary-200 hover:border-b-primary-200 border border-transparent"
+              className="transition-colors duration-300 ease-in-out text-xs md:text-lg text-primary-200 hover:border-b-primary-200 border border-transparent"
             >
               results
             </Link>
           )}
           {currentPath !== "/review" && (
             <Link
-              className="transition-colors duration-300 ease-in-out text-lg text-primary-200 hover:border-b-primary-200 border border-transparent"
+              className="transition-colors duration-300 ease-in-out text-xs md:text-lg text-primary-200 hover:border-b-primary-200 border border-transparent"
               to={"/review"}
             >
               review
@@ -68,7 +71,7 @@ export default function Header() {
           </div>
         )}
         <div className=" flex items-center justify-end ">
-          {!media600 ? (
+          {!media640 ? (
             <Modal.Open id={ModalId.MobileNav} additionalClassName="self-end">
               <IconButtonWrapper extendedClassNames=" p-3 rounded-full transition-colors duration-300 ease-in-out bg-primary-300 hover:bg-primary-300 ">
                 <Icons.IconMenuOpen fillColor="white" size={20} />

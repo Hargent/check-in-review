@@ -8,10 +8,8 @@ type Props = {
 
 function CarouselWindow({ children, extendedClassNames }: Props) {
   const { currentId, items } = useCarouselContext();
-  console.log(currentId, "This is the currentId");
-
   return (
-    <div className=" relative w-full lg:w-4/5  xl:w-3/5 ">
+    <div className=" relative w-full lg:w-4/5  xl:w-3/5  mx-auto">
       {children}
 
       <div className={extendedClassNames}>{items?.at(currentId)}</div>

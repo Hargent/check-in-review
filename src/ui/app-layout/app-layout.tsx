@@ -13,11 +13,11 @@ import Register from "../register";
 const AppLayout: React.FC = () => {
   return (
     <Modal>
-      <main className="">
+      <main className="grid grid-rows-[max-content_max-content_1fr] h-screen">
         <Header />
         <Nav />
-        <section>
-          <div>
+        <section className=" relative w-full h-full bg-primary-800 px-5 ss:px-10 overflow-hidden pt-10">
+          <div className=" w-full ">
             <Outlet />
           </div>
         </section>

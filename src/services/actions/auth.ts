@@ -26,7 +26,7 @@ async function authRegisterUser(registerData: RegisterData) {
   // console.log(registerData);
   try {
     const response = await axios.post(
-      "https://check-in-review.onrender.com/api/registration/",
+      "https://check-in-review.onrender.com/api/registeration/",
       registerData,
       {
         headers: GetHeaders()
