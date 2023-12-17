@@ -95,12 +95,11 @@ WSGI_APPLICATION = "core.wsgi.application"
 #         "NAME": BASE_DIR / "db.sqlite3",
 #     }
 # }
-print(os.getenv("password"))
-print(os.getenv("DATABASE_URL"))
+
 DATABASES = {
     'default': dj_database_url.parse(os.environ.get('DATABASE_URL'), conn_max_age=600, conn_health_checks=True),
 }
-print (DATABASES)
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
