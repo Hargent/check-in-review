@@ -39,29 +39,35 @@ export default function Login() {
 
   if (isModalLoading) {
     return (
-      <ScaleLoader className=" text-4xl text-center mx-auto text-gray-600" />
+      <ScaleLoader
+        color="rgb(0 95 73)"
+        height={50}
+        width={5}
+        className=" text-6xl text-center mx-auto !text-primary-100"
+      />
     );
   }
 
   return (
-    <div className=" text-white flex flex-col items-center justify-center bg-gray-400  rounded-lg  mx-auto p-10 space-y-10 w-3/4">
-      <h1 className=" self-center font-bold text-3xl uppercase transition-all duration-300 ease-in-out hover:text-transparent hover:bg-gradient-to-r from-gray-700 to-gray-900 cursor-default hover:bg-clip-text">
+    <div className=" text-primary-700 flex flex-col items-center justify-center bg-primary-200  rounded-lg  mx-auto p-10 space-y-10 w-3/4">
+      <h1 className=" self-center font-bold text-3xl uppercase transition-all duration-300 ease-in-out  hover:animate-pulse  cursor-default hover:bg-clip-text">
         Sign in
       </h1>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="w-full px-2 sm:px-0 sm:w-4/5 mx-auto flex flex-col items-start justify-start space-y-6 text-gray-400"
+        className="w-full px-2 sm:px-0 sm:w-4/5 mx-auto flex flex-col items-start justify-start space-y-6 text-primary-600"
       >
         <div className=" flex flex-col items-start justify-start space-y-2 w-full">
           <label
-            className=" text-gray-600 capitalize font-medium "
+            className=" text-primary-600 capitalize font-medium "
             htmlFor="username"
           >
             Username
           </label>
           <input
-            className=" w-full p-2 rounded-lg"
+            className=" w-full p-2  rounded-lg text-primary-100  focus-visible:outline-none"
             type="text"
+            placeholder="John Doe"
             {...register("username", {
               required: "Username is required",
               pattern: {
@@ -75,14 +81,14 @@ export default function Login() {
             // }}
           />
           {errors.username && (
-            <p className=" text-red-400 text-sm font-light">
+            <p className=" text-red-700 text-xl font-bold">
               {errors.username.message}
             </p>
           )}
         </div>
         {/* <div className=" flex flex-col items-start justify-start space-y-2 w-full">
           <label
-            className=" text-gray-600 capitalize font-medium "
+            className=" text-primary-600 capitalize font-medium "
             htmlFor="email"
           >
             Email
@@ -99,18 +105,19 @@ export default function Login() {
               clearErrors("email");
             }}
           />
-          {errors.email && <p className=" text-red-400 text-sm font-light">{errors.email.message}</p>}
+          {errors.email && <p className=" text-red-700 text-xl font-bold">{errors.email.message}</p>}
         </div> */}
         <div className=" flex flex-col items-start justify-start space-y-2 w-full">
           <label
-            className=" text-gray-600 capitalize font-medium "
+            className=" text-primary-600 capitalize font-medium "
             htmlFor="password"
           >
             Password
           </label>
           <input
-            className=" w-full p-2 rounded-lg"
+            className=" w-full p-2 rounded-lg text-primary-100 focus-visible:outline-none"
             type="password"
+            placeholder="********"
             {...register("password", {
               required: "Password is required",
               minLength: {
@@ -124,7 +131,7 @@ export default function Login() {
             // }}
           />
           {errors.password && (
-            <p className=" text-red-400 text-sm font-light">
+            <p className=" text-red-700 text-xl font-bold">
               {errors.password.message}
             </p>
           )}
@@ -139,7 +146,7 @@ export default function Login() {
         <ButtonPrimary
           disabled={isLoggingIn}
           type="submit"
-          extendedClassNames=" self-center text-white flex item-center justify-center space-x-2 px-4 py-2 uppercase font-semibold  border border-white hover:bg-white hover:text-gray-600 rounded-lg"
+          extendedClassNames=" self-center text-white flex item-center justify-center space-x-2 px-4 py-2 uppercase font-semibold  border border-white hover:bg-white hover:text-primary-100 rounded-lg"
         >
           {isLoggingIn && (
             <ScaleLoader
@@ -152,11 +159,11 @@ export default function Login() {
           )}
           <span>login</span>
         </ButtonPrimary>
-        <div className=" text-gray-600 flex flex-col sm:flex-row items-center justify-start space-y-3 sm:space-x-2 self-center">
-          <span>Not registered yet ? </span>
+        <div className=" text-primary-600 flex flex-col sm:flex-row items-center justify-start space-y-3  sm:space-y-0 sm:space-x-2 self-center">
+          <span className=" cursor-default">Not registered yet ? </span>
 
           <Modal.Open id={ModalId.Register}>
-            <span className=" uppercase text-white transition-colors duration-200 ease-in-out hover:bg-white hover:text-gray-600 rounded-lg p-2 text-sm">
+            <span className=" uppercase text-white transition-colors duration-200 ease-in-out hover:bg-white hover:text-primary-100 rounded-lg p-2 text-sm">
               register
             </span>
           </Modal.Open>

@@ -29,11 +29,11 @@ export default function Logout() {
 
   if (isModalLoading) {
     return (
-      <ScaleLoader className=" text-4xl text-center mx-auto text-gray-600" />
+      <ScaleLoader className=" text-4xl text-center mx-auto text-primary-100" />
     );
   }
   return (
-    <div className=" text-white flex flex-col items-center justify-center bg-gray-400  rounded-lg  mx-auto p-10 space-y-10 w-1/2">
+    <div className=" text-white flex flex-col items-center justify-center bg-primary-100  rounded-lg  mx-auto p-10 space-y-10 w-1/2">
       <p className=" font-bold text-lg lg:text-2xl uppercase tracking-wider">
         Confirm logout
       </p>
