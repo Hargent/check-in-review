@@ -1,11 +1,13 @@
 import { Navigate, createBrowserRouter } from "react-router-dom";
-import ProtectedRoute from "../ui/protected-route/protected-routes";
+
 import AppLayout from "../ui/app-layout/app-layout";
-import PageNotFound from "../ui/page-not-found/page-not-found";
-import Home from "../pages/home";
-import Questions from "../ui/questions";
 import DashBoard from "../pages/dashboard";
+import Home from "../pages/home";
 import Loader from "../ui/loader";
+import PageNotFound from "../ui/page-not-found/page-not-found";
+import ProtectedRoute from "../ui/protected-route/protected-routes";
+import ResultsPage from "../pages/results";
+import Reviews from "../pages/review";
 
 const Routes = createBrowserRouter([
   {
@@ -28,7 +30,11 @@ const Routes = createBrowserRouter([
 
       {
         path: "review",
-        element: <Questions />
+        element: <Reviews />
+      },
+      {
+        path: "results",
+        element: <ResultsPage />
       }
     ]
   },

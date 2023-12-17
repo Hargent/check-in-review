@@ -52,6 +52,27 @@
     width: 0%;
   }
 }
+/* CHART FORCED STYLE */
+.ReactChart {
+  position: relative !important;
+}
+/* SCROLL BAR STYLES  */
+::-webkit-scrollbar {
+  width: 5px !important;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 100px !important;
+  background-color: #1effca;
+}
+::-webkit-scrollbar-track {
+  border-radius: 100px !important;
+  background-color: #ddfff7;
+}
+/* @media only screen and (max-width: 900px) {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+} */
 
 /* .animated {
   @apply transition-all  duration-500 ease-in-out transform -translate-x-0;
