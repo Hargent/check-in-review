@@ -12,7 +12,6 @@ SpectacularSwaggerView
 
 
 urlpatterns = [
-    path('admin/', include('admin_honeypot.urls', namespace='admin_honeypot')),
     path("management/", admin.site.urls),
 
      path("api/registeration/", RegisterView.as_view(), name="rest_register"),
