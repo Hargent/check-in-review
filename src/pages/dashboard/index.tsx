@@ -6,9 +6,9 @@ import { TypeAnimation } from "react-type-animation";
 
 const Dashboard: React.FC = () => {
   return (
-    <div className=" grid lg:grid-cols-2 grid-rows-2 gap-8 w-full h-full">
+    <div className=" flex flex-col items-center text-center justify-start space-y-8 lg:space-y-0 lg:grid grid-cols-2  gap-2 xl:gap-8 w-full h-full">
       {/* Section for asking the user about their work */}
-      <div className="relative w-full h-full flex flex-col space-y-10 p-6 bg-white ">
+      <div className="relative w-full h-full flex flex-col space-y-10 p-2 xl:p-6 bg-white ">
         <div className="">
           <div className=" uppercase text-2xl bg-gradient-to-r from-primary-400 to-primary-100 bg-clip-text text-transparent transition-all duration-500 ease-in-out hover:scale-210 text-center hover:animate-pulse cursor-default font-semibold mb-4 ">
             <TypeAnimation
@@ -49,7 +49,7 @@ const Dashboard: React.FC = () => {
           <img
             src={ReviewImg}
             alt="Review"
-            className=" w-4/5 mx-auto h-full hover:animate-pulse"
+            className=" w-full md:w-3/5 lg:w-full xl:w-4/5 mx-auto h-full hover:animate-pulse"
           />
         </div>
         <div className=" flex flex-col items-center justify-center space-y-4">
@@ -101,7 +101,7 @@ const Dashboard: React.FC = () => {
           </div>
         </div>
         <div className="relative h-[20rem] ">
-          <div className=" w-full h-full px-4 overflow-x-scroll">
+          <div className=" w-full h-full ss:px-4 overflow-x-scroll">
             {<DashBoardChart />}
             {/* <AppChart /> */}
           </div>

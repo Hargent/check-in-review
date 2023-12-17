@@ -5,7 +5,7 @@ type ErrorProps = {
 const Error: React.FC<ErrorProps> = ({ children }) => {
   return (
     <div>
-      <div>{children}</div>
+      <div className=" h-screen align-middle">{children}</div>
     </div>
   );
 };
