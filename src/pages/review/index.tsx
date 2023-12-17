@@ -1,9 +1,13 @@
 import { AppQuestions } from "../../data";
+import ButtonPrimary from "../../components/button-primary/button-primary";
 import Carousel from "../../components/carousel";
 import QuestionCategory from "../../components/question-category";
 import { useAppSelector } from "../../shared/hooks";
-import ButtonPrimary from "../../components/button-primary/button-primary";
 import { useState } from "react";
+
+// import { getAnswersFromReviewState } from "../../utils/review";
+
+// import { QuestionKeys } from "../../shared/enums";
 
 export default function Reviews() {
   const reviews = useAppSelector((state) => state.review);
@@ -12,6 +16,7 @@ export default function Reviews() {
   // const isTheEnd = false;
   function handleSubmitReview() {
     console.log("This are the reviews to be submitted : ", reviews);
+    // console.log(getAnswersFromReviewState(reviews));
   }
   function handleGetNextState(arg: boolean) {
     setIsTheEnd(arg);

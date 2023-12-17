@@ -49,11 +49,16 @@ export default function Register() {
   // const isLoading = false;
   if (isModalLoading) {
     return (
-      <ScaleLoader className=" text-4xl text-center mx-auto text-primary-100" />
+      <ScaleLoader
+        color="rgb(0 95 73)"
+        height={50}
+        width={5}
+        className=" text-6xl text-center mx-auto !text-primary-100"
+      />
     );
   }
   return (
-    <div className=" text-white flex flex-col items-center justify-center bg-primary-200  rounded-lg  mx-auto p-10 space-y-10 w-3/4">
+    <div className=" text-white flex flex-col items-center justify-center bg-primary-200  rounded-lg  mx-auto p-10 space-y-10 w-3/4 shadow-2xl">
       <h1 className=" self-center font-bold text-3xl uppercase transition-all duration-300 ease-in-out  hover:animate-pulse  cursor-default hover:bg-clip-text">
         Sign up
       </h1>
@@ -69,7 +74,7 @@ export default function Register() {
             Username
           </label>
           <input
-            className=" w-full p-2 rounded-lg focus:border-transparent active:border-transparent focus-visible:border-none"
+            className=" w-full p-2  rounded-lg text-primary-100  focus-visible:outline-none"
             type="text"
             {...register("username", {
               required: "Username is required",
@@ -90,7 +95,7 @@ export default function Register() {
             Email
           </label>
           <input
-            className=" w-full p-2 rounded-lg"
+            className=" w-full p-2  rounded-lg text-primary-100  focus-visible:outline-none"
             type="email"
             {...register("email", {
               required: "Email is required",
@@ -111,7 +116,7 @@ export default function Register() {
             Password
           </label>
           <input
-            className=" w-full p-2 rounded-lg"
+            className=" w-full p-2  rounded-lg text-primary-100  focus-visible:outline-none"
             type="password"
             {...register("password1", {
               required: "Password is required",
@@ -137,7 +142,7 @@ export default function Register() {
             Confirm Password
           </label>
           <input
-            className=" w-full p-2 rounded-lg"
+            className=" w-full p-2  rounded-lg text-primary-100  focus-visible:outline-none"
             type="password"
             {...register("password2", {
               required: "Confirm Password is required",

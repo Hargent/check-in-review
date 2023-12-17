@@ -49,7 +49,7 @@ export default function Login() {
   }
 
   return (
-    <div className=" text-primary-700 flex flex-col items-center justify-center bg-primary-200  rounded-lg  mx-auto p-10 space-y-10 w-3/4">
+    <div className=" text-primary-700 flex flex-col items-center justify-center bg-primary-200  rounded-xl  mx-auto p-10 space-y-10 w-3/4 shadow-2xl">
       <h1 className=" self-center font-bold text-3xl uppercase transition-all duration-300 ease-in-out  hover:animate-pulse  cursor-default hover:bg-clip-text">
         Sign in
       </h1>

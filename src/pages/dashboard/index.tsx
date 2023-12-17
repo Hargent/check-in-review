@@ -112,7 +112,7 @@ const Dashboard: React.FC = () => {
             responses.
           </p>
           <Link
-            to="#"
+            to="/dashboard"
             className=" hover:bg-primary-200 hover:text-primary-800 transition-colors duration-300 ease-in-out hover:shadow-lg hover:shadow-primary-100 active:shadow-none capitalize text-primary-100 p-2 rounded-lg border border-primary-200"
           >
             View Results
