@@ -26,7 +26,7 @@ export default function ResultsPage() {
           department
         </p>
         <p>
-          Date submitted :{" "}
+          Time submitted :{" "}
           {`${new Date(reviewSubmitted.time).toLocaleTimeString()}` || ""}
         </p>
       </div>
@@ -61,10 +61,10 @@ function NoResult() {
 function ResultItems({ result }: { result: ReviewItem[] }) {
   //
   return (
-    <div className="">
+    <div className=" flex flex-col items-start justify-normal space-y-4">
       {result.map((item, idx) => (
         <div
-          className=" flex flex-col items-start justify-center space-y-2 text-lg"
+          className=" flex flex-col items-start justify-center space-y-1 text-lg"
           key={`%%--${idx}-&&`}
         >
           <p className=" font-bold ">

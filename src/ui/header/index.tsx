@@ -21,7 +21,7 @@ export default function Header() {
   // }
   return (
     // <Modal>
-    <div className=" grid grid-cols-2 sm:grid-cols-[1fr_0.5fr_1fr]  md:flex items-center justify-between w-full  py-3 px-5 bg-primary-500">
+    <div className=" grid grid-cols-2 sm:grid-cols-[1fr_0.5fr_1fr] sm:flex items-center justify-between w-full  py-3 px-5 bg-primary-500">
       <Link
         to={"/home"}
         className=" flex items-center justify-start justify-self-start"

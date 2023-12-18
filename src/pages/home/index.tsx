@@ -38,7 +38,7 @@ export default function Home() {
   return (
     <Modal>
       <Header />
-      <div className="bg-white text-primary-100 mx-10 my-60 px-7 text-4xl md:text-6xl justify-center items-center capitalize font-bold flex flex-col space-y-8 ">
+      <div className="bg-white text-primary-100 mx-10 my-40 md:my-60 px-7 text-4xl md:text-6xl justify-center items-center capitalize font-bold flex flex-col space-y-8 ">
         <h1 className=" text-center">Boost your business traffic & sales</h1>
         <p className="text-lg my-4 text-primary-200 text-center">
           Marketing experts are ready to help you
@@ -95,9 +95,9 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <footer className=" bg-primary-600 pt-20 pl-10 pb-9">
+      <footer className=" bg-primary-600 pt-20  pb-9">
         <div className=" flex flex-col items-center justify-center space-y-6">
-          <div className="flex justify-center space-x-10 items-center">
+          <div className="flex justify-center space-x-12 ss:space-x-20 items-center">
             <div className=" text-primary-200 font-semibold border border-transparent transition-colors duration-300 ease-in-out hover:border-b-primary-200 cursor-pointer ">
               <p>Home</p>
             </div>
