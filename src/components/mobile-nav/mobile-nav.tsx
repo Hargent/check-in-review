@@ -28,7 +28,7 @@ function MobileNav({ onCloseModal }: { onCloseModal?: (id: ModalId) => void }) {
   }, [media640]);
 
   return (
-    <div className=" overflow-hidden relative w-full h-screen bg-green-300   flex items-center flex-col justify-center space-y-10">
+    <div className=" overflow-x-hidden relative w-full h-screen bg-green-300   flex items-center flex-col justify-center space-y-10">
       <IconButtonWrapper
         extendedClassNames=" absolute top-0 right-0 p-3 rounded-full bg-white mr-4 mt-4 "
         onClick={() => onCloseModal?.(ModalId.MobileNav)}

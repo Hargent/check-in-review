@@ -15,9 +15,9 @@ export default function Register() {
   const {
     register,
     handleSubmit,
-    setError,
-    // clearErrors,
-    getValues,
+
+    watch,
+
     formState: { errors }
   } = useForm<RegisterData>();
   const { autoTriggerModal } = useModalAutoTrigger();
@@ -32,17 +32,19 @@ export default function Register() {
     autoTriggerModal({ action: "close", id: ModalId.Register });
   }, [autoTriggerModal, isSuccess]);
 
-  const validatepassword2 = (value: string) => {
-    const password = getValues("password1");
-    if (value !== password) {
-      setError("password2", {
-        type: "manual",
-        message: "Passwords do not match"
-      });
-      return false;
-    }
-    return true;
-  };
+  // const validatepassword2 = () => {
+  //   const password = getValues("password1");
+  //   const password2 = getValues("password2");
+
+  //   if (password2 !== password) {
+  //     setError("password2", {
+  //       type: "validate",
+  //       message: "Passwords do not match"
+  //     });
+  //     return false;
+  //   }
+  //   return true;
+  // };
 
   const isModalLoading = useModalPreload(TimeDelay);
 
@@ -146,13 +148,18 @@ export default function Register() {
             type="password"
             {...register("password2", {
               required: "Confirm Password is required",
-              validate: (value) => validatepassword2(value)
+              validate: (val: string) => {
+                if (watch("password1") != val) {
+                  return "Your passwords do no match";
+                }
+              }
             })}
+            // onBlur={validatepassword2}
           />
           {errors.password2 && (
             <div>
               <p className=" text-red-700 text-lg font-semibold ">
-                {errors.password2.message}
+                {errors.password2?.message}
               </p>
             </div>
           )}

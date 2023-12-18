@@ -16,7 +16,7 @@ const AppLayout: React.FC = () => {
       <main className="grid grid-rows-[max-content_max-content_1fr] h-screen">
         <Header />
         <Nav />
-        <section className=" relative w-full h-full bg-primary-800 px-5 ss:px-10 overflow-hidden pt-10">
+        <section className=" relative w-full h-full bg-primary-800 px-5 ss:px-10 overflow-x-hidden py-10">
           <div className=" w-full ">
             <Outlet />
           </div>

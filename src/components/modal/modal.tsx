@@ -115,7 +115,7 @@ function Window({
 
   return createPortal(
     <div
-      className={`overflow-auto w-full h-full fixed top-0 left-0 flex items-center justify-center  bg-opacity-90 backdrop-blur-sm  z-50`}
+      className={`overflow-x-auto w-full h-full fixed top-0 left-0 flex items-center justify-center  bg-opacity-90 backdrop-blur-sm  z-50`}
     >
       <div
         className={`${
