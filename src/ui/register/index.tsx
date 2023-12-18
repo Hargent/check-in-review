@@ -60,7 +60,7 @@ export default function Register() {
     );
   }
   return (
-    <div className=" text-white flex flex-col items-center justify-center bg-primary-200  rounded-lg  mx-auto p-10 space-y-10 w-3/4 shadow-2xl">
+    <div className=" text-white flex flex-col items-center justify-center bg-primary-200  rounded-lg  md:mx-auto p-10 space-y-10 w-full md:w-3/5 lg:w-full  shadow-2xl">
       <h1 className=" self-center font-bold text-3xl uppercase transition-all duration-300 ease-in-out  hover:animate-pulse  cursor-default hover:bg-clip-text">
         Sign up
       </h1>

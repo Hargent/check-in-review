@@ -1,7 +1,8 @@
+import { Month, Teams } from "../../shared/enums";
 import { useEffect, useRef, useState } from "react";
+
 import IconButtonWrapper from "../icon-button-wrapper/icon-button-wrapper";
 import Icons from "../icons";
-import { Month, Teams } from "../../shared/enums";
 import useMediaQuery from "../../shared/hooks/use-media-query/use-media-query";
 
 type DropdownProps<T extends string | number> = {
@@ -64,7 +65,7 @@ DropdownProps<T>) {
       ref={dropdownRef}
       onClick={toggleDropdown}
     >
-      <div className="cursor-pointer px-3 py-2 border border-primary-200 transition-colors duration-200 ease-in-out capitalize rounded-lg flex items-center justify-center space-x-1 ss:space-x-4 hover:text-primary-200">
+      <div className="cursor-pointer px-3 py-2 border border-primary-200 transition-colors duration-200 ease-in-out capitalize rounded-lg flex items-center justify-center space-x-1 ss:space-x-4 hover:text-primary-400">
         <span className=" text-xs ss:text-sm">
           {getOptionLabel(selectedOption)}
         </span>
@@ -74,7 +75,7 @@ DropdownProps<T>) {
       </div>
 
       {isOpen && (
-        <ul className="min-w-full w-[max-content] flex items-stretch flex-col place-self-center space-y-2 p-4 border bg-primary-300 border-primary-200 capitalize rounded-lg my-4 z-50 divide-y divide-primary-200 absolute">
+        <ul className="min-w-full w-[max-content] flex items-stretch flex-col place-self-center space-y-2 p-4 border bg-primary-200 border-primary-200 capitalize rounded-lg my-4 z-50 divide-y divide-primary-3s00 absolute">
           {options.map((option) => (
             <li
               key={String(option)}
