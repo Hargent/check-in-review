@@ -12,6 +12,7 @@ function CarouselNext({ children, extendedClassNames }: Props) {
 
   return (
     <IconButtonWrapper
+      isBorder={true}
       disabled={currentId >= items.length - 1}
       extendedClassNames={extendedClassNames}
       onClick={next}
