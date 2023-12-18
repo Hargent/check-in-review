@@ -1,8 +1,11 @@
+import { useAppDispatch, useAppSelector } from "../../shared/hooks";
+
 import { AppQuestions } from "../../data";
 import ButtonPrimary from "../../components/button-primary/button-primary";
 import Carousel from "../../components/carousel";
 import QuestionCategory from "../../components/question-category";
-import { useAppSelector } from "../../shared/hooks";
+import { setReviewSubmitted } from "../../redux/slice/review-slice";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 // import { getAnswersFromReviewState } from "../../utils/review";
@@ -11,10 +14,19 @@ import { useState } from "react";
 
 export default function Reviews() {
   const reviews = useAppSelector((state) => state.review);
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   const [isTheEnd, setIsTheEnd] = useState(false);
   // const { isTheEnd } = useCarouselContext();
   // const isTheEnd = false;
   function handleSubmitReview() {
+    dispatch(
+      setReviewSubmitted({
+        isSubmitted: true,
+        time: new Date().getTime()
+      })
+    );
+    navigate("/results");
     console.log("This are the reviews to be submitted : ", reviews);
     // console.log(getAnswersFromReviewState(reviews));
   }

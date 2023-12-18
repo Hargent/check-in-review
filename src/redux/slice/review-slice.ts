@@ -13,6 +13,7 @@ export interface ReviewState {
     week: string;
   };
   reviews: Review[];
+  reviewSubmitted: { isSubmitted: boolean; time: number };
 }
 
 const initialState: ReviewState = {
@@ -21,7 +22,8 @@ const initialState: ReviewState = {
     month: Month.January,
     week: "week 1"
   },
-  reviews: []
+  reviews: [],
+  reviewSubmitted: { isSubmitted: false, time: 0 }
 };
 
 export const reviewSlice = createSlice({
@@ -47,10 +49,22 @@ export const reviewSlice = createSlice({
       state.reviews = [...newState, action.payload.reviews].filter(
         (review) => review.category
       );
+    },
+    setReviewSubmitted: (
+      state,
+      action: PayloadAction<{ isSubmitted: boolean; time: number }>
+    ) => {
+      state.reviewSubmitted.isSubmitted = action.payload.isSubmitted;
+      state.reviewSubmitted.time = action.payload.time;
     }
   }
 });
 
-export const { setUserTeam, setUserMonth, setUserWeek, setUserReview } =
-  reviewSlice.actions;
+export const {
+  setUserTeam,
+  setUserMonth,
+  setUserWeek,
+  setUserReview,
+  setReviewSubmitted
+} = reviewSlice.actions;
 export default reviewSlice.reducer;
