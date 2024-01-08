@@ -26,6 +26,7 @@
 
 // export { saveCookieDetails, getCookieDetails, removeCookieDetails };
 // //
+
 import Cookies from "js-cookie";
 
 // interface AccessKeyDetails {
@@ -45,7 +46,7 @@ const getAccessKey = (cookieName: string = "accessKey"): string | null => {
   return storedAccessKey || null;
 };
 
-const removeAccessKey = (cookieName: string = "accessKey") => {
+const removeAccessKey = async (cookieName: string = "accessKey") => {
   Cookies.remove(cookieName);
 };
 

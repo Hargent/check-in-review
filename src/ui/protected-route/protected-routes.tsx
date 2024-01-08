@@ -19,22 +19,29 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
   // const isGettingUser = false;
   // const isAuthenticated = false;
 
+  console.log("====================================");
+  console.log(fetchedUser, fetchingUser, userError);
+  console.log("====================================");
   useEffect(() => {
-    if (userError) {
+    if (!fetchedUser) {
       navigate("/home", { replace: true });
     } else {
-      navigate("/", { replace: true });
+      navigate("/dashboard", { replace: true });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [userError, navigate]);
+  }, [fetchedUser]);
   if (fetchingUser) {
     return <Loader />;
   }
 
-  if (fetchedUser && user) {
-    dispatch(saveUser({ ...user.data } as UserState));
+  // if (fetchedUser && user) {
+
+  if (fetchedUser) {
+    dispatch(saveUser({ ...user?.data } as UserState));
     dispatch(loginUser());
     return children;
+  } else {
+    navigate("/home", { replace: true });
   }
 };
 export default ProtectedRoute;

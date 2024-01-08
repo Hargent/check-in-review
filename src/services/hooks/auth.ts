@@ -100,14 +100,15 @@ function useUserLogout() {
   const mutation = useMutation({
     mutationKey: ["user-logout"],
     mutationFn: authLogoutUser,
-    onSuccess: (data) => {
-      queryClient.invalidateQueries();
+    onSuccess: async (data) => {
       // setIsSuccess(true);
       toaster(data.data.detail, "success");
-      removeAccessKey();
       dispatch(logoutUserReducer());
       dispatch(deleteUser());
-      navigate("/home");
+      removeAccessKey().then(async () => {
+        await queryClient.invalidateQueries();
+        navigate("/home", { replace: true });
+      });
     }
   });
 
