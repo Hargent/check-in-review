@@ -9,10 +9,10 @@ function useUser() {
     isSuccess: fetchedUser
   } = useQuery({
     queryKey: ["user"],
-    queryFn: fetchUser
-    // retryOnMount: true,
-    // refetchOnReconnect: "always"
-    // refetchOnWindowFocus: true
+    queryFn: fetchUser,
+    retryOnMount: true,
+    refetchOnReconnect: "always",
+    refetchOnWindowFocus: true
   });
 
   return {

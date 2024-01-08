@@ -18,9 +18,9 @@ import { useUser } from "../../services/hooks/user";
 
 export default function Home() {
   const { user, fetchedUser, fetchingUser } = useUser();
+
   const dispatch = useAppDispatch();
   useEffect(() => {
-    // if (userError) return;
     if (user && fetchedUser) {
       dispatch(saveUser({ ...user.data } as UserState));
       dispatch(loginUser());
@@ -31,7 +31,7 @@ export default function Home() {
       removeAccessKey();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [fetchedUser]);
+  }, []);
   if (fetchingUser) {
     <ScaleLoader className=" text-4xl text-center mx-auto text-gray-600" />;
   }

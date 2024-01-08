@@ -80,7 +80,7 @@ DropdownProps<T>) {
             <li
               key={String(option)}
               onClick={() => handleOptionClick(option)}
-              className="cursor-pointer hover:text-primary-200 pt-2 first:pt-0"
+              className="cursor-pointer hover:text-primary-400 pt-2 first:pt-0"
             >
               {getOptionLabel(option)}
             </li>

@@ -11,7 +11,7 @@ import Reviews from "../pages/review";
 
 const Routes = createBrowserRouter([
   {
-    path: "/",
+    path: "/app",
     element: (
       <ProtectedRoute>
         <AppLayout />
@@ -39,7 +39,7 @@ const Routes = createBrowserRouter([
     ]
   },
   {
-    path: "home",
+    path: "/",
     element: <Home />,
     loader: Loader,
     errorElement: <PageNotFound />
