@@ -21,7 +21,6 @@ export default function Logout() {
   useEffect(() => {
     if (!isSuccess) return;
     autoTriggerModal({ action: "close", id: ModalId.Logout });
-    window.location.reload();
   }, [autoTriggerModal, isSuccess]);
   const handleCancel = () => {
     autoTriggerModal({ action: "close", id: ModalId.Logout });

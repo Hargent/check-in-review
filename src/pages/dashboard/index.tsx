@@ -58,7 +58,7 @@ const Dashboard: React.FC = () => {
             progress and challenges.
           </p>
           <Link
-            to="/review"
+            to="/app/review"
             className=" hover:bg-primary-200 hover:text-primary-800 transition-colors duration-300 ease-in-out hover:shadow-lg hover:shadow-primary-100 active:shadow-none capitalize text-primary-100 p-2 rounded-lg border border-primary-200"
           >
             Take Review
@@ -112,7 +112,7 @@ const Dashboard: React.FC = () => {
             responses.
           </p>
           <Link
-            to="/results"
+            to="/app/results"
             className=" hover:bg-primary-200 hover:text-primary-800 transition-colors duration-300 ease-in-out hover:shadow-lg hover:shadow-primary-100 active:shadow-none capitalize text-primary-100 p-2 rounded-lg border border-primary-200"
           >
             View Results

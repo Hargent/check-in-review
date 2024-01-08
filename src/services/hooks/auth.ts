@@ -29,7 +29,7 @@ function useUserLogin() {
       queryClient.invalidateQueries();
       saveAccessKey(data.data.key);
       dispatch(loginUserReducer());
-      navigate("/dashboard");
+      navigate("/app/dashboard");
       // ("This is the login data : ", data.data);
     }
   });
@@ -95,26 +95,35 @@ function useUserRegister() {
 function useUserLogout() {
   const dispatch = useAppDispatch();
   const toaster = useAppToast();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   // const [isSuccess, setIsSuccess] = useState(false);
   const mutation = useMutation({
     mutationKey: ["user-logout"],
     mutationFn: authLogoutUser,
-    onSuccess: async (data) => {
+    onSuccess: (data) => {
       // setIsSuccess(true);
       toaster(data.data.detail, "success");
-      dispatch(logoutUserReducer());
-      dispatch(deleteUser());
-      removeAccessKey().then(async () => {
-        await queryClient.invalidateQueries();
-        navigate("/home", { replace: true });
-      });
+      return true;
+    },
+    onError: (err) => {
+      toaster(err.message, "error");
+
+      return false;
     }
   });
 
   const logoutUser = async () => {
     try {
-      await mutation.mutateAsync();
+      const isLoggedOut = await mutation.mutateAsync();
+      if (!isLoggedOut) {
+        throw new Error("Logout failed");
+      }
+      dispatch(logoutUserReducer());
+      dispatch(deleteUser());
+      await removeAccessKey();
+
+      await queryClient.invalidateQueries({ queryKey: ["user"] });
+      // navigate("/", { replace: true });
     } catch (error) {
       console.error("Error logging out :", error);
     }
